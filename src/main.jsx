@@ -14,6 +14,7 @@ import Home from './components/Home';
 import Stroke from './components/Stroke';
 import Diabetes from './components/Diabetes';
 import Heartattack from './components/Heartattack';
+import SearchDoctors from './components/SearchDoctors';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: "/heart-attack",
     element: <Heartattack />,
+  },
+  {
+    path: "/search-doctors",
+    element: <SearchDoctors />,
   },
 ]);
 

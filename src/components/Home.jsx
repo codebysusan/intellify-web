@@ -63,7 +63,6 @@ function Home() {
         </div>
     )
 
-
     const symptomsDrivenSuggestions = (
         <div>
             <p className="text-center mt-20 text-3xl font-semibold mb-10">
@@ -103,11 +102,8 @@ function Home() {
     );
 
     const searchDoctor = () =>{
-        console.log('search doctor');
-        history("/stroke");
+        history("/search-doctors");
     }
-
-
 
     return (
         <div className='h-screen'>
@@ -115,7 +111,7 @@ function Home() {
             <div className='flex flex-col md:flex-row mx-6 md:mx-10 my-2 md:my-6'>
                 <div className='md:w-1/2'>
                     <div className='flex h-1/4 justify-center text-center mt-20'>
-                        <div className='w-2/3'>
+                        <div className='md:w-2/3'>
                             <label className='text-xl' htmlFor="">Search Doctors</label>
                             <input
                                 onClick={searchDoctor}

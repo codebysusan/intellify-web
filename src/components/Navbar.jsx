@@ -16,7 +16,7 @@ function Navbar() {
 
     const toggleLoginVisibility = () => {
         if (location.pathname === '/signup' || location.pathname === "/") {
-            return <button onClick={navigateLogin} className={`bg-blue-500 hover:bg-blue-700 text-white font-medium text-base py-2 px-4 rounded-md mr-8`} >
+            return <button onClick={navigateLogin} className={`bg-blue-500 hover:bg-blue-700 text-white font-medium text-base py-2 px-4 rounded-md md:mr-8`} >
                 Log In
             </button>;
         }
@@ -46,16 +46,13 @@ function Navbar() {
                 </Link>
             </div>
             <div >
-                {/* <Link to="/signup"> */}
                 {
                     toggleSignUpVisibility()
                 }
-                {/* </Link> */}
-                {/* <Link to="/login"> */}
                 {
                     toggleLoginVisibility()
                 }
-                {/* </Link> */}
+
             </div>
         </div>
     )
