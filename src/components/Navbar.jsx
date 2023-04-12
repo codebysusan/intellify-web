@@ -1,12 +1,22 @@
 import React, { useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 function Navbar() {
     const location = useLocation();
 
+    const history = useNavigate();
+
+    const navigateSignup = () => {
+        history("/signup");
+    }
+
+    const navigateLogin = () => {
+        history("/login");
+    }
+
     const toggleLoginVisibility = () => {
         if (location.pathname === '/signup' || location.pathname === "/") {
-            return <button className={`bg-blue-500 hover:bg-blue-700 text-white font-medium text-base py-2 px-4 rounded-md`} >
+            return <button onClick={navigateLogin} className={`bg-blue-500 hover:bg-blue-700 text-white font-medium text-base py-2 px-4 rounded-md mr-8`} >
                 Log In
             </button>;
         }
@@ -17,7 +27,7 @@ function Navbar() {
 
     const toggleSignUpVisibility = () => {
         if (location.pathname === '/login' || location.pathname === "/") {
-            return <button className={`bg-slate-50 hover:bg-slate-200 text-black font-medium text-base py-2 px-4 rounded-md mr-8`} >
+            return <button onClick={navigateSignup} className={`bg-slate-50 hover:bg-slate-200 text-black font-medium text-base py-2 px-4 rounded-md mr-8`} >
                 Sign Up
             </button>;
         }
@@ -25,6 +35,8 @@ function Navbar() {
             return null;
         }
     }
+
+
 
     return (
         <div className='flex sm:flex-row justify-between px-8 py-4 items-center '>
@@ -34,16 +46,16 @@ function Navbar() {
                 </Link>
             </div>
             <div >
-                <Link to="/signup">
-                    {
-                        toggleSignUpVisibility()
-                    }
-                </Link>
-                <Link to="/login">
-                    {
-                        toggleLoginVisibility()
-                    }
-                </Link>
+                {/* <Link to="/signup"> */}
+                {
+                    toggleSignUpVisibility()
+                }
+                {/* </Link> */}
+                {/* <Link to="/login"> */}
+                {
+                    toggleLoginVisibility()
+                }
+                {/* </Link> */}
             </div>
         </div>
     )

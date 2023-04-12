@@ -1,8 +1,14 @@
 import React from 'react'
 import Navbar from './Navbar'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
+
+    const history = useNavigate();
+
+    const navigateHome = () => {
+        history("/home");
+    }
     return (
         <div className='h-screen'>
             <Navbar />
@@ -22,10 +28,8 @@ function Login() {
                     </div>
                     <div className="flex justify-center flex-row mt-5">
                         <div>
-                            <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
-                                <Link to="/home">
-                                    Log In
-                                </Link>
+                            <button type='submit' onClick={navigateHome} className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
+                                Log In
                             </button>
                         </div>
                     </div>
