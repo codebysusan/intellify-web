@@ -1,0 +1,26 @@
+body {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* #herosection{
+  background-image: linear-gradient(to bottom right,red, blue);
+} */
+
+.gradient{
+  background-image: linear-gradient(to bottom right,red, blue);
+}
+
+.light-color{
+  background-color: #a7e2e3;
+}
+
+.dark-color{
+  background-color: #293132;
+}
+
+.text-dark{
+  color: #293132;
+}
+
+
