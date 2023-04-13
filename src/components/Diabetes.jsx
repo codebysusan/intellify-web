@@ -83,6 +83,7 @@ function Diabetes() {
     );
 
     await fetch(`${predictionUrl}/diabetes`, {
+      referrerPolicy: "http://139.59.57.249:8000/",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
