@@ -7,6 +7,7 @@ import jwtDecode from 'jwt-decode';
 function SymptomSuggestion() {
     useEffect(() => {
         document.title = "MindMed | Symptom Suggestion";
+        const token = localStorage.getItem("token");
         if (token == null) {
             history("/login");
         } else {
@@ -15,6 +16,7 @@ function SymptomSuggestion() {
             if (userData.acc_type == "doctor") {
                 history("/doctor-home");
             }
+
         }
     }, [])
 
