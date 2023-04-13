@@ -47,7 +47,7 @@ function Login() {
                 email: email,
                 password: password
             }).then((response) => {
-                console.log(response);
+                console.log(response.data.message);
                 if (response.data.message == "Login successful") {
                     const token = response.data.token;
                     console.log(token);
