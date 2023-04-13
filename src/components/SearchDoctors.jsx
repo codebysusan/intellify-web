@@ -6,7 +6,7 @@ function SearchDoctors() {
 
     const [doctor, setDoctor] = useState("");
     useState(() => {
-        document.title = "Search Doctors"
+        document.title = "MindMed | Search Doctors"
     }, [])
 
     const changeDoctor = (event) => {
@@ -45,7 +45,7 @@ function SearchDoctors() {
             <div className='md:my-12 my-12'>
 
                 <DoctorCard name={"Tasnimul Hasan Hasan Tauhid"} hospital={"XYZ Hospital"} />
-                <DoctorCard name={"Tasnimul Hasan Tauhid"} hospital={"XYZ Hospital"} />
+                {/* <DoctorCard name={"Tasnimul Hasan Tauhid"} hospital={"XYZ Hospital"} /> */}
             </div>
 
 

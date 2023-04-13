@@ -16,7 +16,11 @@ function Home() {
     }
 
     useEffect(() => {
-        document.title = "TAST | Home";
+        document.title = "MindMed | Home";
+        const token = localStorage.getItem('token');
+        if(token == null){
+            history("/login");
+        }
     }, []);
 
     useEffect(() => {

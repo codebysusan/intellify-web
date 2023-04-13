@@ -42,7 +42,7 @@ function DoctorCard(props) {
         <div className='flex justify-center w-full my-3'>
             <div className='flex items-center gap-x-6 bg-slate-100 p-4 rounded-lg md:w-1/3 w-full mx-6'>
                 <div className=''>
-                    <img className='border border-gray-300' src={Doctor} alt="" width={"60 rem"} />
+                    <img className='' src={Doctor} alt="" width={"60 rem"} />
                 </div>
                 <div className='text-lg'>
                     {

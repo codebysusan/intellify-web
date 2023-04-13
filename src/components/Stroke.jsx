@@ -6,7 +6,7 @@ function Stroke() {
 
 
     useEffect(() => {
-        document.title = "Stroke Prediction"
+        document.title = " MindMed | Stroke Prediction"
     }, []);
 
     const [age, setAge] = useState('');
