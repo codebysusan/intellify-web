@@ -146,7 +146,21 @@ function BreastCancerPredicition() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        // allow cross-origin requests
         "Access-Control-Allow-Origin": "*",
+
+        // allow cookies
+        "Access-Control-Allow-Credentials": true,
+
+        // allow headers
+        "Access-Control-Allow-Headers":
+          "Origin, X-Requested-With, Content-Type, Accept",
+
+        // allow methods
+
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+
+        // allow credentials
       },
       body: JSON.stringify({
         texture_mean: textureMean,
