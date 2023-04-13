@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from './Navbar'
-import Doctor from "../assets/doctor.png"
+import DoctorCard from './DoctorCard';
 
 function SearchDoctors() {
 
@@ -15,17 +15,15 @@ function SearchDoctors() {
         setDoctor(newDoctor);
     }
 
-
     const searchDoctor = (event) => {
         event.preventDefault();
         console.log(doctor);
     }
 
-
     return (
         <div>
             <Navbar />
-            <div className='flex justify-center mx-6 md:mx-10 my-2 md:my-6'>
+            <div className='flex justify-center mx-3 md:mx-10 my-2 md:my-6'>
                 <div className='md:w-1/2'>
                     <form onSubmit={(event) => { searchDoctor(event) }}>
                         <div className="flex justify-center">
@@ -33,7 +31,7 @@ function SearchDoctors() {
                                 onChange={changeDoctor}
                                 type="text"
                                 id="search-doctors"
-                                className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/3 p-2.5"
+                                className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block md:w-2/4 w-2/3 p-2.5"
                                 placeholder="Search Doctors"
                                 autoFocus
                             />
@@ -44,15 +42,10 @@ function SearchDoctors() {
                     </form>
                 </div>
             </div>
-            <div className='flex justify-center w-full'>
-                <div className='flex gap-x-6 md:my-12 my-12 bg-slate-100 p-4 rounded-lg md:w-1/3 w-full mx-6'>
-                    <div className=''>
-                        <img src={Doctor} alt="" width={"60 rem"} />
-                    </div>
-                    <div className='text-lg'>
-                        Tasnimul Hasan Tauhid
-                    </div>
-                </div>
+            <div className='md:my-12 my-12'>
+
+                <DoctorCard name={"Tasnimul Hasan Hasan Tauhid"} hospital={"XYZ Hospital"} />
+                <DoctorCard name={"Tasnimul Hasan Tauhid"} hospital={"XYZ Hospital"} />
             </div>
 
 

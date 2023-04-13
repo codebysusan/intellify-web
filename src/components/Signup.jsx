@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import { Link } from 'react-router-dom'
 
 function Signup() {
+
     return (
         <div className='h-screen'>
             <Navbar />
