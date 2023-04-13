@@ -36,19 +36,19 @@ function Home() {
         }
     }, [symptoms]);
 
-    const navigateStroke = () =>{
+    const navigateStroke = () => {
         history("/stroke");
     }
 
-    const navigateHeartAttack = () =>{
+    const navigateHeartAttack = () => {
         history("/heart-attack");
     }
 
-    const navigateDiabetes = () =>{
+    const navigateDiabetes = () => {
         history("/diabetes");
     }
 
-    const navigateBreastCancer = () =>{
+    const navigateBreastCancer = () => {
         history("/breast-cancer-prediction");
     }
 
@@ -57,7 +57,7 @@ function Home() {
             <p className="text-center mt-20 text-3xl font-semibold mb-10">
                 Changing the way you receive health information <br /> through the use of AI
             </p>
-            <div className="flex flex-col gap-y-6 md:gap-x-12 items-center justify-center mt-8 mx-3 md:mx-10 my-2 md:my-6">
+            <div className="flex flex-col gap-y-8 md:gap-x-12 items-center justify-center mt-8 mx-3 md:mx-10 my-2 md:my-6">
                 <button
                     onClick={navigateStroke}
                     className='bg-slate-50 w-2/3 md:w-1/2 hover:bg-blue-800 hover:text-white font-medium md:text-2xl md:py-4 md:px-8 md:font-medium text-xl py-3 px-6 rounded-md' >
@@ -83,7 +83,7 @@ function Home() {
     )
 
     const symptomsDrivenSuggestions = (
-        <div>
+        <div className='h-2/3'>
             <p className="text-center mt-20 text-3xl font-semibold mb-10">
                 Symptom-Driven Suggestions
             </p>
@@ -125,7 +125,7 @@ function Home() {
     }
 
     return (
-        <div className=''>
+        <div className='h-screen'>
             <Navbar />
             <div className='flex flex-col md:flex-row mx-6 md:mx-10 my-2 md:my-6'>
                 <div className='md:w-1/2'>

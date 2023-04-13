@@ -56,13 +56,21 @@ function Navbar() {
 
     }
 
+    const homeRoute = () => {
+        const token = localStorage.getItem('token');
+        if (token == null) {
+            history("/");
+        } else {
+            history("/home");
+        }
+    }
 
     return (
         <div className='flex sm:flex-row justify-between pl-8 pr-4 py-4 items-center '>
             <div className='text-2xl font-semibold'>
-                <Link to="/">
+                <p className='hover:cursor-pointer' onClick={homeRoute}>
                     MindMed
-                </Link>
+                </p>
             </div>
             <div >
                 {

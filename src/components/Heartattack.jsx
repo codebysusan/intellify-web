@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import jwtDecode from 'jwt-decode';
+import axios from 'axios';
 
 function Heartattack() {
 
@@ -18,6 +19,7 @@ function Heartattack() {
     }
   }, []);
 
+  const baseUrl = "http://139.59.57.249:8000";
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [cp, setCp] = useState("");
@@ -30,6 +32,8 @@ function Heartattack() {
   const [exang, setExang] = useState("");
   const [oldpeak, setOldpeak] = useState("");
   const [ca, setCa] = useState("");
+  const [thal, setThal] = useState("");
+  const [outputMessage, setOutputMessage] = useState("");
 
 
   const changeAge = (event) => {
@@ -107,9 +111,44 @@ function Heartattack() {
     setCa(newCa);
   }
 
+  const changeThal = (event) => {
+    const newThal = event.target.value;
+    console.log(newThal);
+    setThal(newThal);
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(` Age: ${age} \n Gender: ${gender} \n cp: ${cp} \n trestbps: ${trestbps} \n chol: ${chol} \n slope: ${slope} \n fbs: ${fbs} \n restecg: ${restecg} \n thalach: ${thalach} \n exang: ${exang} \n oldpeak: ${oldpeak} \n ca: ${ca}`)
+    console.log(` Age: ${age} \n Gender: ${gender} \n cp: ${cp} \n trestbps: ${trestbps} \n chol: ${chol} \n slope: ${slope} \n fbs: ${fbs} \n restecg: ${restecg} \n thalach: ${thalach} \n exang: ${exang} \n oldpeak: ${oldpeak} \n ca: ${ca}`);
+
+    axios
+      .post(`${baseUrl}/heartattack`, {
+        age: age,
+        sex: gender,
+        cp: cp,
+        trestbps: trestbps,
+        chol: chol,
+        fbs: fbs,
+        restecg: restecg,
+        thalach: thalach,
+        exang: exang,
+        oldpeak: oldpeak,
+        slope: slope,
+        ca: ca,
+        thal: thal
+      })
+      .then((response) => {
+        console.log(response.data);
+        const output = response.data.prediction;
+        if (output == 1) {
+          setOutputMessage("You have a high chance of getting a heart attack. It is a better idea to consult a doctor")
+        } else if (output == 0) {
+          setOutputMessage("You have a low chance of getting a heart attack");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
 
@@ -141,11 +180,12 @@ function Heartattack() {
                     defaultValue={'select-one'}
                     name="gender"
                     id="gender"
-                    className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 w-full focus:border-blue-500 block mt-2 py-2.5 px-2'>
+                    className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 w-full focus:border-blue-500 block mt-2 py-2.5 px-2'
+                    required
+                  >
                     <option value={"select-one"} disabled>Select one</option>
-                    <option value={"male"}>Male</option>
-                    <option value={"female"}>Female</option>
-                    <option value={'others'}>Others</option>
+                    <option value={"1"}>Male</option>
+                    <option value={"0"}>Female</option>
                   </select>
                 </div>
               </div>
@@ -194,6 +234,19 @@ function Heartattack() {
                     id="slope"
                     className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
                     placeholder="Enter slope value"
+
+                  />
+                </div>
+              </div>
+              <div className='my-4 flex justify-center'>
+                <div>
+                  <label className='' htmlFor="thal">thal</label>
+                  <input
+                    onChange={changeThal}
+                    type="text"
+                    id="thal"
+                    className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
+                    placeholder="Enter thal value"
 
                   />
                 </div>
@@ -281,6 +334,11 @@ function Heartattack() {
           <button className='bg-blue-500 hover:bg-blue-700 text-white font-medium text-lg py-2 px-4 rounded-md' type="submit">Check</button>
         </div>
       </form>
+      <div>
+        <p className='text-center text-2xl'>
+          {outputMessage}
+        </p>
+      </div>
     </div>
   )
 }
