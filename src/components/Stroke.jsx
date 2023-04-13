@@ -81,32 +81,6 @@ function Stroke() {
       ` Age: ${age} \n Hypertension: ${hypertension} \n Evermarried: ${evermarried} \n Bmi: ${bmi} \n Heart Disease: ${heartdisease} \n Avg Glucose Level: ${avgglucoselevel} \n Smoking Status: ${smokingstatus}`
     );
 
-    // axios
-    //   .post(`${predictionUrl}/stroke`, {
-    //     age: age,
-    //     hypertension: hypertension,
-    //     heart_disease: heartdisease,
-    //     ever_married: evermarried,
-    //     avg_glucose_level: avgglucoselevel,
-    //     bmi: bmi,
-    //     smoking_status: smokingstatus,
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     const output = response.data.prediction;
-    //     if (output == 1) {
-    //       setOutputMessage(
-    //         "You have a high chance of getting a stroke. It is a better idea to consult a doctor"
-    //       );
-    //       // console.log("You have a high chance of getting a stroke");
-    //     } else if (output == 0) {
-    //       setOutputMessage("You have a low chance of getting a stroke");
-    //       // console.log("You have a low chance of getting a stroke");
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
 
     await fetch(`${predictionUrl}/stroke`, {
       method: "POST",
@@ -145,14 +119,14 @@ function Stroke() {
   return (
     <div className=''>
       <Navbar />
-      <p className='text-center mt-8 text-3xl'>Stroke Prediction</p>
+      <p className='text-center mt-8 text-3xl font-semibold text-white'>Stroke Prediction</p>
       <form onSubmit={(event) => handleSubmit(event)}>
         <div className='flex justify-center'>
           <div className='flex flex-col justify-center md:gap-x-28 md:flex-row mx-6 md:mx-10 md:my-6 mt-8'>
             <div className=''>
               <div className='my-4 flex justify-center'>
                 <div className=''>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Age
                   </label>
                   <input
@@ -167,7 +141,7 @@ function Stroke() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='hypertension'>
+                  <label className='text-white text-lg' htmlFor='hypertension'>
                     Hypertension
                   </label>
                   <select
@@ -188,7 +162,7 @@ function Stroke() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='evermarried'>
+                  <label className='text-white text-lg' htmlFor='evermarried'>
                     Ever Married
                   </label>
                   <select
@@ -209,7 +183,7 @@ function Stroke() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='bmi'>
+                  <label className='text-white text-lg' htmlFor='bmi'>
                     BMI
                   </label>
                   <input
@@ -226,7 +200,7 @@ function Stroke() {
             <div className=''>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='heartDisease'>
+                  <label className='text-white text-lg' htmlFor='heartDisease'>
                     Heart Disease
                   </label>
                   <select
@@ -247,7 +221,7 @@ function Stroke() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='avgglucoselevel'>
+                  <label className='text-white text-lg' htmlFor='avgglucoselevel'>
                     Average Glucose Level
                   </label>
                   <input
@@ -262,7 +236,7 @@ function Stroke() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='smokingstatus'>
+                  <label className='text-white text-lg' htmlFor='smokingstatus'>
                     Smoking Status
                   </label>
                   <select
@@ -287,7 +261,7 @@ function Stroke() {
         </div>
         <div className='flex justify-center my-8'>
           <button
-            className='bg-blue-500 hover:bg-blue-700 text-white font-medium text-lg py-2 px-4 rounded-md'
+            className='bg-white hover:bg-slate-200 text-black font-medium text-lg py-2 px-4 rounded-md'
             type='submit'
           >
             Check

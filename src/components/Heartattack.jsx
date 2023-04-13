@@ -158,7 +158,7 @@ function Heartattack() {
   return (
     <div className=''>
       <Navbar />
-      <p className='text-center mt-8 text-3xl'>Heart Attack Predicition</p>
+      <p className='text-center mt-8 text-3xl font-semibold text-white'>Heart Attack Predicition</p>
       <form
         onSubmit={(event) => {
           handleSubmit(event);
@@ -169,7 +169,7 @@ function Heartattack() {
             <div className=''>
               <div className='my-4 flex justify-center'>
                 <div className=''>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Age
                   </label>
                   <input
@@ -183,7 +183,7 @@ function Heartattack() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='gender'>
+                  <label className='text-white text-lg' htmlFor='gender'>
                     Gender
                   </label>
                   <select
@@ -204,7 +204,7 @@ function Heartattack() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='cp'>
+                  <label className='text-white text-lg' htmlFor='cp'>
                     cp
                   </label>
                   <input
@@ -218,7 +218,7 @@ function Heartattack() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='trestbps'>
+                  <label className='text-white text-lg' htmlFor='trestbps'>
                     trestbps
                   </label>
                   <input
@@ -232,7 +232,7 @@ function Heartattack() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='chol'>
+                  <label className='text-white text-lg' htmlFor='chol'>
                     chol
                   </label>
                   <input
@@ -246,7 +246,7 @@ function Heartattack() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='slope'>
+                  <label className='text-white text-lg' htmlFor='slope'>
                     slope
                   </label>
                   <input
@@ -260,7 +260,7 @@ function Heartattack() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='thal'>
+                  <label className='text-white text-lg' htmlFor='thal'>
                     thal
                   </label>
                   <input
@@ -276,7 +276,7 @@ function Heartattack() {
             <div className=''>
               <div className='md:my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='fbs'>
+                  <label className='text-white text-lg' htmlFor='fbs'>
                     fbs
                   </label>
                   <input
@@ -290,7 +290,7 @@ function Heartattack() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='restecg'>
+                  <label className='text-white text-lg' htmlFor='restecg'>
                     restecg
                   </label>
                   <input
@@ -304,7 +304,7 @@ function Heartattack() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='thalach'>
+                  <label className='text-white text-lg' htmlFor='thalach'>
                     thalach
                   </label>
                   <input
@@ -318,7 +318,7 @@ function Heartattack() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='exang'>
+                  <label className='text-white text-lg' htmlFor='exang'>
                     exang
                   </label>
                   <input
@@ -332,7 +332,7 @@ function Heartattack() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='oldpeak'>
+                  <label className='text-white text-lg' htmlFor='oldpeak'>
                     oldpeak
                   </label>
                   <input
@@ -346,7 +346,7 @@ function Heartattack() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='ca'>
+                  <label className='text-white text-lg' htmlFor='ca'>
                     ca
                   </label>
                   <input
@@ -363,7 +363,7 @@ function Heartattack() {
         </div>
         <div className='flex justify-center my-8'>
           <button
-            className='bg-blue-500 hover:bg-blue-700 text-white font-medium text-lg py-2 px-4 rounded-md'
+            className='bg-white hover:bg-slate-200 text-black font-medium text-lg py-2 px-4 rounded-md'
             type='submit'
           >
             Check

@@ -192,8 +192,10 @@ function BreastCancerPredicition() {
   return (
     <div className=''>
       <Navbar />
-      <p className='text-center mt-8 text-3xl'>Breast Cancer Prediction</p>
+      <p className='text-center mt-8 text-3xl font-semibold text-white'>Breast Cancer Prediction</p>
+      
       <form
+        className=""
         onSubmit={(event) => {
           checkBreastCancer(event);
         }}
@@ -203,7 +205,7 @@ function BreastCancerPredicition() {
             <div className=''>
               <div className='my-4 flex justify-center'>
                 <div className=''>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Texture Mean
                   </label>
                   <input
@@ -218,7 +220,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Smoothness Mean
                   </label>
                   <input
@@ -233,7 +235,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Compactness Mean
                   </label>
                   <input
@@ -248,7 +250,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='bmi'>
+                  <label className='text-white text-lg' htmlFor='bmi'>
                     Concave Points Mean
                   </label>
                   <input
@@ -263,7 +265,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='bmi'>
+                  <label className='text-white text-lg' htmlFor='bmi'>
                     Smoothness se
                   </label>
                   <input
@@ -278,7 +280,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='bmi'>
+                  <label className='text-white text-lg' htmlFor='bmi'>
                     Concavity se
                   </label>
                   <input
@@ -293,7 +295,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='bmi'>
+                  <label className='text-white text-lg' htmlFor='bmi'>
                     Symmetry se
                   </label>
                   <input
@@ -308,7 +310,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='bmi'>
+                  <label className='text-white text-lg' htmlFor='bmi'>
                     Texture Worst
                   </label>
                   <input
@@ -323,7 +325,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='bmi'>
+                  <label className='text-white text-lg' htmlFor='bmi'>
                     Smoothness Worst
                   </label>
                   <input
@@ -338,7 +340,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='bmi'>
+                  <label className='text-white text-lg' htmlFor='bmi'>
                     Concavity Worst
                   </label>
                   <input
@@ -353,7 +355,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div>
-                  <label className='' htmlFor='bmi'>
+                  <label className='text-white text-lg' htmlFor='bmi'>
                     Symmetry Worst
                   </label>
                   <input
@@ -370,7 +372,7 @@ function BreastCancerPredicition() {
             <div className=''>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Symmetry Mean
                   </label>
                   <input
@@ -385,7 +387,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='avgglucoselevel'>
+                  <label className='text-white text-lg' htmlFor='avgglucoselevel'>
                     Fractal Dimension Mean
                   </label>
                   <input
@@ -400,7 +402,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Texture se
                   </label>
                   <input
@@ -415,7 +417,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Area se
                   </label>
                   <input
@@ -430,7 +432,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Compactness se
                   </label>
                   <input
@@ -445,7 +447,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Concave Points se
                   </label>
                   <input
@@ -460,7 +462,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Fractal Dimension se
                   </label>
                   <input
@@ -475,7 +477,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Area Worst
                   </label>
                   <input
@@ -490,7 +492,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Compactness Worst
                   </label>
                   <input
@@ -505,7 +507,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Concave Points Worst
                   </label>
                   <input
@@ -520,7 +522,7 @@ function BreastCancerPredicition() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Fractal Dimension Worst
                   </label>
                   <input
@@ -538,7 +540,7 @@ function BreastCancerPredicition() {
         </div>
         <div className='flex justify-center my-8'>
           <button
-            className='bg-blue-500 hover:bg-blue-700 text-white font-medium text-lg py-2 px-4 rounded-md'
+            className='bg-white hover:bg-slate-200 text-black font-medium text-lg py-2 px-4 rounded-md'
             type='submit'
           >
             Check

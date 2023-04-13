@@ -1,82 +1,9 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import { Link, useNavigate } from "react-router-dom";
-import jwtDecode from "jwt-decode";
-import Illustration from "../assets/illustration1.jpg";
+import React from 'react'
+import Navbar from './Navbar'
+import Illustration from "../assets/illustration1.jpg"
+import { Link } from 'react-router-dom'
 
-
-function Login() {
-    useEffect(() => {
-        document.title = "MindMed | Login";
-        const token = localStorage.getItem("token");
-        if (token != null) {
-            history("/home");
-        }
-    }, []);
-
-    const baseUrl = import.meta.env.VITE_BASE_URL;
-
-    const history = useNavigate();
-    const navigateHome = () => {
-        history("/new-home");
-    };
-
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState(null);
-
-    const changeEmail = (event) => {
-        const newEmail = event.target.value;
-        console.log(newEmail);
-        setEmail(newEmail);
-    };
-
-    const changePassword = (event) => {
-        const newPassword = event.target.value;
-        console.log(newPassword);
-        setPassword(newPassword);
-    };
-
-    const handleLogin = async (event) => {
-        event.preventDefault();
-
-        console.log(`Email: ${email} \nPassword: ${password}`);
-
-        await fetch(`${baseUrl}/login`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password,
-            }),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                if (data.message == "Login successful") {
-                    const token = data.token;
-                    console.log(token);
-                    localStorage.setItem("token", token);
-                    const user = jwtDecode(token);
-                    const accountType = user.acc_type;
-                    if (accountType == "doctor") {
-                        history("/doctor-home");
-                    } else if (accountType == "user") {
-                        history("/home");
-                    }
-                } else {
-                    console.log("Login failed");
-                    setError("Invalid email or password");
-                }
-            })
-            .catch((error) => {
-                console.log(`Error: ${error}`);
-                setError(error);
-            });
-    };
-
+function NewLogin() {
     return (
         <div className=''>
             <Navbar />
@@ -144,7 +71,7 @@ function Login() {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
-export default Login;
+export default NewLogin

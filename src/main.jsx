@@ -20,6 +20,8 @@ import SymptomSuggestion from './components/SymptomSuggestion';
 import BreastCancerPredicition from './components/BreastCancerPredicition';
 import NewHome from './components/NewHome';
 import DiseasePrediction from './components/DiseasePrediction';
+import NewLogin from './components/NewLogin';
+import NewSignup from './components/NewSignup';
 
 const router = createBrowserRouter([
   {
@@ -73,6 +75,14 @@ const router = createBrowserRouter([
   {
     path: "/disease-prediction",
     element: <DiseasePrediction />,
+  },
+  {
+    path: "/new-login",
+    element: <NewLogin />,
+  },
+  {
+    path: "/new-signup",
+    element: <NewSignup />,
   },
 ]);
 

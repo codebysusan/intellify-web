@@ -12,7 +12,7 @@ function DiseasePrediction() {
             <div className='primary-color h-5/6'>
                 <div className='flex flex-col md:flex-row gap-y-8 md:gap-x-8 pt-8  mx-6 primary-color items-center h-full'>
                     <Link
-                        to={"/disease-prediction"}
+                        to={"/stroke"}
                         className='hover:cursor-pointer w-11/12 md:w-1/4 flex items-center bg-slate-100 p-8 backdrop-blur-md min-h-[450px] rounded-xl'
                     >
                         <div>
@@ -21,16 +21,16 @@ function DiseasePrediction() {
                             </div>
                             <div>
                                 <p className='text-center text-4xl font-semibold mt-6'>
-                                    Disease Prediction
+                                    Stroke Prediction
                                 </p>
                             </div>
                             <div className='text-center mt-5 text-xl'>
-                                Get a quick prediction of possible diseases based on your symptoms. Click here to try our cutting-edge symptom prediction model!
+                                Get a quick prediction of possible diseases based on your symptoms. Click here to try our symptom prediction model!
                             </div>
                         </div>
                     </Link>
                     <Link
-                        to={"/symptoms-suggestion"}
+                        to={"/heart-attack"}
                         className='hover:cursor-pointer w-11/12 md:w-1/4 flex items-center bg-slate-100 p-8 backdrop-blur-md min-h-[450px] rounded-xl'
                     >
                         <div>
@@ -39,16 +39,16 @@ function DiseasePrediction() {
                             </div>
                             <div>
                                 <p className='text-center text-4xl font-semibold mt-6'>
-                                    Symptoms Driven Suggestion
+                                    Heart Attack Prediction
                                 </p>
                             </div>
                             <div className='text-center mt-5 text-xl'>
-                                Symptom-Driven Suggestion is an AI-based system that provides tailored recommendations for symptoms. It's not 100% accurate and should not replace medical advice.
+                                Symptom-Driven Suggestion is an AI-based system that provides tailored recommendations for symptoms.
                             </div>
                         </div>
                     </Link>
                     <Link
-                    to={"/search-doctors"}
+                    to={"/diabetes"}
                         className='hover:cursor-pointer w-11/12 md:w-1/4 flex items-center bg-slate-100 p-8 backdrop-blur-md min-h-[450px] rounded-xl'
                     >
                         <div>
@@ -57,17 +57,17 @@ function DiseasePrediction() {
                             </div>
                             <div>
                                 <p className='text-center text-4xl font-semibold mt-6'>
-                                    Find Your Doctor
+                                    Diabetes Prediction
                                 </p>
                             </div>
                             <div className='text-center mt-5 text-xl'>
                                 Finding the right doctor is important for good health. 
-                                Find your ideal doctor in seconds! Our search tool makes it easy to connect with top-rated healthcare professionals. Start your search for the perfect doctor here!
+                                Find your ideal doctor in seconds!
                             </div>
                         </div>
                     </Link>
                     <Link
-                    to={"/search-doctors"}
+                    to={"/breast-cancer-prediction"}
                         className='hover:cursor-pointer w-11/12 md:w-1/4 flex items-center bg-slate-100 p-8 backdrop-blur-md min-h-[450px] rounded-xl'
                     >
                         <div>
@@ -76,12 +76,12 @@ function DiseasePrediction() {
                             </div>
                             <div>
                                 <p className='text-center text-4xl font-semibold mt-6'>
-                                    Find Your Doctor
+                                    Breast Cancer Prediction
                                 </p>
                             </div>
                             <div className='text-center mt-5 text-xl'>
                                 Finding the right doctor is important for good health. 
-                                Find your ideal doctor in seconds! Our search tool makes it easy to connect with top-rated healthcare professionals. Start your search for the perfect doctor here!
+                                Find your ideal doctor in seconds! 
                             </div>
                         </div>
                     </Link>

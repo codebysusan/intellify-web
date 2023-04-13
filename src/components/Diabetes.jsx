@@ -120,7 +120,7 @@ function Diabetes() {
   return (
     <div className=''>
       <Navbar />
-      <p className='text-center mt-8 mb-4 text-3xl'>Diabetes Prediction</p>
+      <p className='text-center mt-8 text-3xl font-semibold text-white'>Diabetes Prediction</p>
       <form
         onSubmit={(event) => {
           checkDiabetes(event);
@@ -131,7 +131,7 @@ function Diabetes() {
             <div className=''>
               <div className='my-4 flex justify-center'>
                 <div className=''>
-                  <label className='' htmlFor='age'>
+                  <label className='text-white text-lg' htmlFor='age'>
                     Age
                   </label>
                   <input
@@ -145,7 +145,7 @@ function Diabetes() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='pregnancies'>
+                  <label className='text-white text-lg' htmlFor='pregnancies'>
                     Pregnancies
                   </label>
                   <input
@@ -159,7 +159,7 @@ function Diabetes() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='glucose'>
+                  <label className='text-white text-lg' htmlFor='glucose'>
                     Glucose
                   </label>
                   <input
@@ -173,7 +173,7 @@ function Diabetes() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='blood-pressure'>
+                  <label className='text-white text-lg' htmlFor='blood-pressure'>
                     Blood Pressure
                   </label>
                   <input
@@ -189,7 +189,7 @@ function Diabetes() {
             <div className=''>
               <div className='md:my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='skin-thickness'>
+                  <label className='text-white text-lg' htmlFor='skin-thickness'>
                     Skin Thickness
                   </label>
                   <input
@@ -203,7 +203,7 @@ function Diabetes() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='insulin'>
+                  <label className='text-white text-lg' htmlFor='insulin'>
                     Insulin
                   </label>
                   <input
@@ -217,7 +217,7 @@ function Diabetes() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='bmi'>
+                  <label className='text-white text-lg' htmlFor='bmi'>
                     BMI
                   </label>
                   <input
@@ -231,7 +231,7 @@ function Diabetes() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='' htmlFor='pedigree-function'>
+                  <label className='text-white text-lg' htmlFor='pedigree-function'>
                     Diabetes Pedigree Function
                   </label>
                   <input
@@ -248,7 +248,7 @@ function Diabetes() {
         </div>
         <div className='flex justify-center my-8'>
           <button
-            className='bg-blue-500 hover:bg-blue-700 text-white font-medium text-lg py-2 px-4 rounded-md'
+            className='bg-white hover:bg-slate-200 text-black font-medium text-lg py-2 px-4 rounded-md'
             type='submit'
           >
             Check

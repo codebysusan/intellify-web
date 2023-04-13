@@ -1,7 +1,9 @@
 body {
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
+  /* background-color: #73b9ee; */
   background-color: #5494da;
+  /* background-color: #6fffe9; */
 }
 
 /* #herosection{
@@ -26,5 +28,16 @@ body {
 
 .primary-color {
   background-color: #5494da;
+  /* background-color: #6fffe9; */
   /* color: #73b9ee; */
+}
+
+#login-illustration{
+  background-image: url("./assets/illustration1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.height-90{
+  height: 93vh;
 }

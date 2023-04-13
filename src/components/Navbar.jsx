@@ -61,7 +61,7 @@ function Navbar() {
         if (token == null) {
             history("/");
         } else {
-            history("/home");
+            history("/new-home");
         }
     }
 

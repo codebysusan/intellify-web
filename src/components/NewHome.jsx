@@ -1,6 +1,9 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Doctor from '../assets/doctor.png'
+import PredictionImg from "../assets/prediction.jpeg"
+import SuggestionImg from "../assets/suggestion.png"
+
 import { Link } from 'react-router-dom'
 
 function NewHome() {
@@ -14,11 +17,11 @@ function NewHome() {
                 <div className='flex flex-col md:flex-row gap-y-8 md:gap-x-8 pt-8  mx-6 primary-color items-center h-full'>
                     <Link
                         to={"/disease-prediction"}
-                        className='hover:cursor-pointer w-11/12 md:w-1/3 flex items-center bg-slate-100 p-8 backdrop-blur-md min-h-[450px] rounded-xl'
+                        className='hover:cursor-pointer w-11/12 md:w-1/3 flex items-center bg-slate-100 p-8 backdrop-blur-md min-h-[500px]  md:min-h-[450px] rounded-xl'
                     >
                         <div>
                             <div className='flex justify-center'>
-                                <img src={Doctor} alt="" width={"100rem"} />
+                                <img src={PredictionImg} alt="" width={"100rem"} />
                             </div>
                             <div>
                                 <p className='text-center text-4xl font-semibold mt-6'>
@@ -32,11 +35,11 @@ function NewHome() {
                     </Link>
                     <Link
                         to={"/symptoms-suggestion"}
-                        className='hover:cursor-pointer w-11/12 md:w-1/3 flex items-center bg-slate-100 p-8 backdrop-blur-md min-h-[450px] rounded-xl'
+                        className='hover:cursor-pointer w-11/12 md:w-1/3 flex items-center bg-slate-100 p-8 backdrop-blur-md md:min-h-[450px] min-h-[550px] rounded-xl'
                     >
                         <div>
                             <div className='flex justify-center'>
-                                <img src={Doctor} alt="" width={"100rem"} />
+                                <img src={SuggestionImg} alt="" width={"100rem"} />
                             </div>
                             <div>
                                 <p className='text-center text-4xl font-semibold mt-6'>
@@ -50,7 +53,7 @@ function NewHome() {
                     </Link>
                     <Link
                     to={"/search-doctors"}
-                        className='hover:cursor-pointer w-11/12 md:w-1/3 flex items-center bg-slate-100 p-8 backdrop-blur-md min-h-[450px] rounded-xl'
+                        className='hover:cursor-pointer w-11/12 md:w-1/3 flex items-center bg-slate-100 p-8 backdrop-blur-md md:min-h-[450px] min-h-[500px] rounded-xl'
                     >
                         <div>
                             <div className='flex justify-center'>
@@ -70,9 +73,6 @@ function NewHome() {
 
                 </div>
             </div>
-
-
-
         </div>
     )
 }
