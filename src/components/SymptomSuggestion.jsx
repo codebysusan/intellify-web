@@ -2,8 +2,21 @@ import React, { useState, useEffect } from 'react'
 
 import Navbar from './Navbar'
 import SymptomsCard from './SymptomsCard';
+import jwtDecode from 'jwt-decode';
 
 function SymptomSuggestion() {
+    useEffect(() => {
+        document.title = "MindMed | Symptom Suggestion";
+        if (token == null) {
+            history("/login");
+        } else {
+            const userData = jwtDecode(token);
+            console.log(userData.acc_type);
+            if (userData.acc_type == "doctor") {
+                history("/doctor-home");
+            }
+        }
+    }, [])
 
     const [symptoms, setSymptoms] = useState("");
     const [symptomsList, setSymptomsList] = useState([]);

@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import { useNavigate } from 'react-router-dom'
+import jwtDecode from 'jwt-decode';
 
 function DoctorHome() {
 
-    useEffect(()=>{
+    useEffect(() => {
         document.title = "MindMed | Doctor Home";
         const token = localStorage.getItem('token');
-        if(token == null){
+        if (token == null) {
             history("/login");
+        } else {
+            const userData = jwtDecode(token);
+            if (userData.role == "user") {
+                history("/home");
+            }
         }
-    },[])
-    
+    }, [])
+
 
     const history = useNavigate();
 

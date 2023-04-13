@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from './Navbar'
 import DoctorCard from './DoctorCard';
+import jwtDecode from 'jwt-decode';
 
 function SearchDoctors() {
 
@@ -8,8 +9,14 @@ function SearchDoctors() {
     useState(() => {
         document.title = "MindMed | Search Doctors"
         const token = localStorage.getItem('token');
-        if(token == null){
+        if (token == null) {
             history("/login");
+        } else {
+            const userData = jwtDecode(token);
+            console.log(userData.acc_type);
+            if (userData.acc_type == "doctor") {
+                history("/doctor-home");
+            }
         }
     }, [])
 

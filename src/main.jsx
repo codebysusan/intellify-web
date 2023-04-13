@@ -17,7 +17,7 @@ import Heartattack from './components/Heartattack';
 import SearchDoctors from './components/SearchDoctors';
 import DoctorHome from './components/DoctorHome';
 import SymptomSuggestion from './components/SymptomSuggestion';
-import BreastCancerPredicition from './BreastCancerPredicition';
+import BreastCancerPredicition from './components/BreastCancerPredicition';
 
 const router = createBrowserRouter([
   {

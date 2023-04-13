@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 
 function Diabetes() {
 
@@ -9,9 +10,15 @@ function Diabetes() {
         const token = localStorage.getItem('token');
         if (token == null) {
             history("/login");
+        } else {
+            const userData = jwtDecode(token);
+            console.log(userData.acc_type);
+            if (userData.acc_type == "doctor") {
+                history("/doctor-home");
+            }
         }
     }, []);
-    
+
     const baseUrl = "http://139.59.57.249:8000";
     const [age, setAge] = useState('');
     const [pregnancies, setPregnancies] = useState('');
@@ -21,6 +28,7 @@ function Diabetes() {
     const [insulin, setInsulin] = useState("");
     const [bmi, setBmi] = useState("");
     const [diabetesPedigree, setDiabetesPedigree] = useState("");
+    const [outputMessage, setOutputMessage] = useState("");
 
 
     const changeAge = (event) => {
@@ -81,13 +89,21 @@ function Diabetes() {
             age: age,
             pregnancies: pregnancies,
             glucose: glucose,
-            bloodPressure: bloodPressure,
-            skinThickness: skinThickness,
+            blood_pressure: bloodPressure,
+            skin_thickness: skinThickness,
             insulin: insulin,
             bmi: bmi,
-            diabetesPedigree: diabetesPedigree
+            diabetes_pedigree_function: diabetesPedigree
         }).then((response) => {
             console.log(response.data);
+            const output = response.data.prediction;
+            if (output == 1) {
+                setOutputMessage("You have a high chance of getting a diabetes. It is a better idea to consult a doctor")
+                // console.log("You have a high chance of getting a stroke");
+            } else if (output == 0) {
+                setOutputMessage("You have a low chance of getting a diabetes.");
+                // console.log("You have a low chance of getting a stroke");
+            }
         }).catch((error) => {
             console.log(error);
         });
@@ -206,6 +222,11 @@ function Diabetes() {
                     <button className='bg-blue-500 hover:bg-blue-700 text-white font-medium text-lg py-2 px-4 rounded-md' type="submit">Check</button>
                 </div>
             </form>
+            <div>
+                <p className='text-center text-2xl'>
+                    {outputMessage}
+                </p>
+            </div>
         </div>
     )
 }

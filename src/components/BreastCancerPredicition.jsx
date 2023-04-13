@@ -1,32 +1,38 @@
-import React , {useState} from 'react'
-import Navbar from './components/Navbar'
+import React, { useState } from 'react';
+import Navbar from './Navbar';
+import axios from 'axios';
+
+
 
 function BreastCancerPredicition() {
 
 
+    const baseUrl = "http://139.59.57.249:8000";
 
-    const [textureMean, setTextureMean] = useState("");
-    const [smoothnessMean, setSmoothnessMean] = useState("");
-    const [compactnessMean, setCompactnessMean] = useState("");
-    const [concavePointsMean, setConcavePointsMean] = useState("");
-    const [symmetryMean, setSymmetryMean] = useState("");
-    const [fractalDimensionMean, setFractalDimensionMean] = useState("");
-    const [textureSe, setTextureSe] = useState("");
-    const [areaSe, setAreaSe] = useState("");
-    const [smoothnessSe, setSmoothnessSe] = useState("");
-    const [compactnessSe, setCompactnessSe] = useState("");
-    const [concavitySe, setConcavitySe] = useState("");
-    const [concavePointsSe, setConcavePointsSe] = useState("");
-    const [symmetrySe, setSymmetrySe] = useState("");
-    const [fractalDimensionSe, setFractalDimensionSe] = useState("");
-    const [textureWorst, setTextureWorst] = useState("");
-    const [areaWorst, setAreaWorst] = useState("");
-    const [smoothnessWorst, setSmoothnessWorst] = useState("");
-    const [compactnessWorst, setCompactnessWorst] = useState("");
-    const [concavityWorst, setConcavityWorst] = useState("");
-    const [concavePointsWorst, setConcavePointsWorst] = useState("");
-    const [symmetryWorst, setSymmetryWorst] = useState("");
-    const [fractalDimensionWorst, setFractalDimensionWorst] = useState("");
+    const [textureMean, setTextureMean] = useState();
+    const [smoothnessMean, setSmoothnessMean] = useState();
+    const [compactnessMean, setCompactnessMean] = useState();
+    const [concavePointsMean, setConcavePointsMean] = useState();
+    const [symmetryMean, setSymmetryMean] = useState();
+    const [fractalDimensionMean, setFractalDimensionMean] = useState();
+    const [textureSe, setTextureSe] = useState();
+    const [areaSe, setAreaSe] = useState();
+    const [smoothnessSe, setSmoothnessSe] = useState();
+    const [compactnessSe, setCompactnessSe] = useState();
+    const [concavitySe, setConcavitySe] = useState();
+    const [concavePointsSe, setConcavePointsSe] = useState();
+    const [symmetrySe, setSymmetrySe] = useState();
+    const [fractalDimensionSe, setFractalDimensionSe] = useState();
+    const [textureWorst, setTextureWorst] = useState();
+    const [areaWorst, setAreaWorst] = useState();
+    const [smoothnessWorst, setSmoothnessWorst] = useState();
+    const [compactnessWorst, setCompactnessWorst] = useState();
+    const [concavityWorst, setConcavityWorst] = useState();
+    const [concavePointsWorst, setConcavePointsWorst] = useState();
+    const [symmetryWorst, setSymmetryWorst] = useState();
+    const [fractalDimensionWorst, setFractalDimensionWorst] = useState();
+
+    const [outputMessage, setOutputMessage] = useState("");
 
     const changeTextureMean = (event) => {
         const newTextureMean = event.target.value;
@@ -64,7 +70,7 @@ function BreastCancerPredicition() {
         console.log(newFractalDimensionMean);
         setFractalDimensionMean(newFractalDimensionMean);
     }
-    
+
     const changeTextureSe = (event) => {
         const newTextureSe = event.target.value;
         console.log(newTextureSe);
@@ -164,15 +170,52 @@ function BreastCancerPredicition() {
 
     const checkBreastCancer = (event) => {
         event.preventDefault();
+        console.log("CLicke")
+        axios
+            .post(`${baseUrl}/breastcancer`, {
+                texture_mean: textureMean,
+                smoothness_mean: smoothnessMean,
+                compactness_mean: compactnessMean,
+                concave_points_mean: concavePointsMean,
+                symmetry_mean: symmetryMean,
+                fractal_dimension_mean: fractalDimensionMean,
+                texture_se: textureSe,
+                area_se: areaSe,
+                smoothness_se: smoothnessSe,
+                compactness_se: compactnessSe,
+                concavity_se: concavitySe,
+                concave_points_se: concavePointsSe,
+                symmetry_se: symmetrySe,
+                fractal_dimension_se: fractalDimensionSe,
+                texture_worst: textureWorst,
+                area_worst: areaWorst,
+                smoothness_worst: smoothnessWorst,
+                compactness_worst: compactnessWorst,
+                concavity_worst: concavityWorst,
+                concave_points_worst: concavePointsWorst,
+                symmetry_worst: symmetryWorst,
+                fractal_dimension_worst: fractalDimensionWorst
+            })
+            .then((response) => {
+                console.log(response.data);
+                const output = response.data.prediction;
+                if (output == 1) {
+                    setOutputMessage("You have a high chance of having breast cancer. It is a better idea to consult a doctor")
+                } else if (output == 0) {
+                    setOutputMessage("You have a low chance of having breast cancer.");
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+            });
 
     }
-
 
     return (
         <div className=''>
             <Navbar />
-            <p className='text-center mt-8 text-3xl'>Stroke Prediction</p>
-            <form onSubmit={(event) => { }}>
+            <p className='text-center mt-8 text-3xl'>Breast Cancer Prediction</p>
+            <form onSubmit={(event) => { checkBreastCancer(event) }}>
                 <div className='flex justify-center'>
                     <div className='flex flex-col justify-center md:gap-x-28 md:flex-row mx-6 md:mx-10 md:my-6 mt-8'>
                         <div className=''>
@@ -472,9 +515,9 @@ function BreastCancerPredicition() {
                 </div>
             </form>
             <div>
-                {/* <p className='text-center text-2xl'>
+                <p className='text-center text-2xl'>
                     {outputMessage}
-                </p> */}
+                </p>
             </div>
         </div>
     )

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 
 
 function Stroke() {
@@ -8,6 +9,16 @@ function Stroke() {
 
     useEffect(() => {
         document.title = " MindMed | Stroke Prediction"
+        const token = localStorage.getItem('token');
+        if (token == null) {
+            history("/login");
+        } else {
+            const userData = jwtDecode(token);
+            console.log(userData.acc_type);
+            if (userData.acc_type == "doctor") {
+                history("/doctor-home");
+            }
+        }
     }, []);
 
     const baseUrl = "http://139.59.57.249:8000";

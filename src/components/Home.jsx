@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from './Navbar'
 import { Link, useNavigate } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 
 function Home() {
 
@@ -18,8 +19,14 @@ function Home() {
     useEffect(() => {
         document.title = "MindMed | Home";
         const token = localStorage.getItem('token');
-        if(token == null){
+        if (token == null) {
             history("/login");
+        } else {
+            const userData = jwtDecode(token);
+            console.log(userData.acc_type);
+            if (userData.acc_type == "doctor") {
+                history("/doctor-home");
+            }
         }
     }, []);
 
@@ -29,39 +36,48 @@ function Home() {
         }
     }, [symptoms]);
 
+    const navigateStroke = () =>{
+        history("/stroke");
+    }
+
+    const navigateHeartAttack = () =>{
+        history("/heart-attack");
+    }
+
+    const navigateDiabetes = () =>{
+        history("/diabetes");
+    }
+
+    const navigateBreastCancer = () =>{
+        history("/breast-cancer-prediction");
+    }
+
     const rightScreen = (
-        <div className=''>
+        <div className='w-full'>
             <p className="text-center mt-20 text-3xl font-semibold mb-10">
                 Changing the way you receive health information <br /> through the use of AI
             </p>
-            <div className="flex flex-col justify-center h-4/5">
-                <div className="flex justify-center my-12 ">
-                    <Link to="/stroke">
-                        <div className="md:w-96 w-88 bg-slate-100 p-12 border border-slate-100 border-4 rounded-3xl hover:border-black hover:border-r-8 hover:border-b-8 hover:border-t-0 hover:border-l-0">
-                            <p className="text-center text-black text-xl">
-                                Stroke Prediction
-                            </p>
-                        </div>
-                    </Link>
-                </div>
-                <div className="flex justify-center my-12">
-                    <Link to="/heart-attack">
-                        <div className="md:w-96 w-88 bg-slate-100 p-12 border border-slate-100 border-4 rounded-3xl hover:border-black hover:border-r-8 hover:border-b-8 hover:border-t-0 hover:border-l-0">
-                            <p className="text-center text-black text-xl">
-                                Heart Attack Prediction
-                            </p>
-                        </div>
-                    </Link>
-                </div>
-                <div className="flex justify-center my-12">
-                    <Link to={"/diabetes"}>
-                        <div className="md:w-96 w-88 bg-slate-100 p-12 border border-slate-100 border-4 rounded-3xl hover:border-black hover:border-r-8 hover:border-b-8 hover:border-t-0 hover:border-l-0">
-                            <p className="text-center text-black text-xl">
-                                Diabetes Prediction
-                            </p>
-                        </div>
-                    </Link>
-                </div>
+            <div className="flex flex-col gap-y-6 md:gap-x-12 items-center justify-center mt-8 mx-3 md:mx-10 my-2 md:my-6">
+                <button
+                    onClick={navigateStroke}
+                    className='bg-slate-50 w-2/3 md:w-1/2 hover:bg-blue-800 hover:text-white font-medium md:text-2xl md:py-4 md:px-8 md:font-medium text-xl py-3 px-6 rounded-md' >
+                    Stroke
+                </button>
+                <button
+                    onClick={navigateHeartAttack}
+                    className='bg-slate-50 w-2/3 md:w-1/2 hover:bg-blue-800 hover:text-white font-medium md:text-2xl md:py-4 md:px-8 md:font-medium text-xl py-3 px-6 rounded-md' >
+                    Heart Attack
+                </button>
+                <button
+                    onClick={navigateDiabetes}
+                    className='bg-slate-50 w-2/3 md:w-1/2 hover:bg-blue-800 hover:text-white font-medium md:text-2xl md:py-4 md:px-8 md:font-medium text-xl py-3 px-6 rounded-md' >
+                    Diabetes
+                </button>
+                <button
+                    onClick={navigateBreastCancer}
+                    className='bg-slate-50 w-2/3 md:w-1/2 hover:bg-blue-800 hover:text-white font-medium md:text-2xl md:py-4 md:px-8 md:font-medium text-xl py-3 px-6 rounded-md' >
+                    Breast Cancer
+                </button>
             </div>
         </div>
     )
@@ -104,12 +120,12 @@ function Home() {
         </div>
     );
 
-    const searchDoctor = () =>{
+    const searchDoctor = () => {
         history("/search-doctors");
     }
 
     return (
-        <div className='h-screen'>
+        <div className=''>
             <Navbar />
             <div className='flex flex-col md:flex-row mx-6 md:mx-10 my-2 md:my-6'>
                 <div className='md:w-1/2'>
@@ -123,7 +139,7 @@ function Home() {
                                 className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full mt-2"
                                 placeholder="Search doctors"
                             />
-                            
+
                         </div>
                     </div>
                     {
