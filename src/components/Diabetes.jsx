@@ -75,15 +75,19 @@ function Diabetes() {
     setDiabetesPedigree(newDiabetesPedigree);
   };
 
-  const checkDiabetes = (event) => {
+  const checkDiabetes = async (event) => {
     event.preventDefault();
 
     console.log(
       ` Age: ${age} \n Pregnancies: ${pregnancies} \n Glucose: ${glucose} \n Blood Pressure: ${bloodPressure} \n Skin Thickness: ${skinThickness} \n Insulin: ${insulin} \n BMI: ${bmi} \n Diabetes Pedigree: ${diabetesPedigree}`
     );
 
-    axios
-      .post(`${predictionUrl}/diabetes`, {
+    await fetch(`${predictionUrl}/diabetes`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
         age: age,
         pregnancies: pregnancies,
         glucose: glucose,
@@ -92,16 +96,18 @@ function Diabetes() {
         insulin: insulin,
         bmi: bmi,
         diabetes_pedigree_function: diabetesPedigree,
-      })
-      .then((response) => {
-        console.log(response.data);
-        const output = response.data.prediction;
-        if (output == 1) {
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const { prediction, yes, no } = data;
+        if (prediction == 1) {
           setOutputMessage(
             "You have a high chance of getting a diabetes. It is a better idea to consult a doctor"
           );
           // console.log("You have a high chance of getting a stroke");
-        } else if (output == 0) {
+        } else if (prediction == 0) {
           setOutputMessage("You have a low chance of getting a diabetes.");
           // console.log("You have a low chance of getting a stroke");
         }
