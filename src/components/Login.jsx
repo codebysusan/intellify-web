@@ -66,7 +66,6 @@ function Login() {
     }
 
 
-
     return (
         <div className='h-screen'>
             <Navbar />
