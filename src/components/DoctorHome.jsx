@@ -1,8 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import { useNavigate } from 'react-router-dom'
 
 function DoctorHome() {
+
+    useEffect(()=>{
+        document.title = "MindMed | Doctor Home";
+        const token = localStorage.getItem('token');
+        if(token == null){
+            history("/login");
+        }
+    },[])
+    
+
     const history = useNavigate();
 
 

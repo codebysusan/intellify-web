@@ -5,7 +5,11 @@ function Heartattack() {
 
 
   useEffect(() => {
-    document.title = "Heart Attack Prediction"
+    document.title = "MindMed | Heart Attack Prediction"
+    const token = localStorage.getItem('token');
+    if (token == null) {
+      history("/login");
+    }
   }, []);
 
   const [age, setAge] = useState("");

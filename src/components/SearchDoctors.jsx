@@ -7,6 +7,10 @@ function SearchDoctors() {
     const [doctor, setDoctor] = useState("");
     useState(() => {
         document.title = "MindMed | Search Doctors"
+        const token = localStorage.getItem('token');
+        if(token == null){
+            history("/login");
+        }
     }, [])
 
     const changeDoctor = (event) => {

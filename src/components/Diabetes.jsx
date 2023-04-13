@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
+import axios from 'axios';
 
 function Diabetes() {
 
     useEffect(() => {
-        document.title = "Diabetes Prediction"
+        document.title = "MindMed | Diabetes Prediction"
+        const token = localStorage.getItem('token');
+        if (token == null) {
+            history("/login");
+        }
     }, []);
-
-
+    
+    const baseUrl = "http://139.59.57.249:8000";
     const [age, setAge] = useState('');
     const [pregnancies, setPregnancies] = useState('');
     const [glucose, setGlucose] = useState("");
@@ -69,7 +74,23 @@ function Diabetes() {
 
     const checkDiabetes = (event) => {
         event.preventDefault();
+
         console.log(` Age: ${age} \n Pregnancies: ${pregnancies} \n Glucose: ${glucose} \n Blood Pressure: ${bloodPressure} \n Skin Thickness: ${skinThickness} \n Insulin: ${insulin} \n BMI: ${bmi} \n Diabetes Pedigree: ${diabetesPedigree}`);
+
+        axios.post(`${baseUrl}/diabetes`, {
+            age: age,
+            pregnancies: pregnancies,
+            glucose: glucose,
+            bloodPressure: bloodPressure,
+            skinThickness: skinThickness,
+            insulin: insulin,
+            bmi: bmi,
+            diabetesPedigree: diabetesPedigree
+        }).then((response) => {
+            console.log(response.data);
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     return (

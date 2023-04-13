@@ -29,7 +29,6 @@ function Home() {
         }
     }, [symptoms]);
 
-
     const rightScreen = (
         <div className=''>
             <p className="text-center mt-20 text-3xl font-semibold mb-10">

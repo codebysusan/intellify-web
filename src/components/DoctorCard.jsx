@@ -36,8 +36,6 @@ function DoctorCard(props) {
         </p>
     );
 
-
-
     return (
         <div className='flex justify-center w-full my-3'>
             <div className='flex items-center gap-x-6 bg-slate-100 p-4 rounded-lg md:w-1/3 w-full mx-6'>

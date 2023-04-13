@@ -16,6 +16,7 @@ import Diabetes from './components/Diabetes';
 import Heartattack from './components/Heartattack';
 import SearchDoctors from './components/SearchDoctors';
 import DoctorHome from './components/DoctorHome';
+import SymptomSuggestion from './components/SymptomSuggestion';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
   {
     path: "/doctor-home",
     element: <DoctorHome />,
+  },
+  {
+    path: "/symptoms-suggestion",
+    element: <SymptomSuggestion />,
   },
 ]);
 

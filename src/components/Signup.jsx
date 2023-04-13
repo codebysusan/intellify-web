@@ -1,10 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
 function Signup() {
+
+    useEffect(() => {
+        document.title = "MindMed | Signup"
+        // const token = localStorage.getItem('token');
+        // if (token == null) {
+        //     history("/login");
+        // }
+    }, []);
 
     const [fullname, setFullname] = useState("");
     const [email, setEmail] = useState("");
@@ -14,8 +22,6 @@ function Signup() {
     const baseUrl = "http://127.0.0.1:4000";
 
     const history = useNavigate();
-
-
 
     const changeFullname = (event) => {
         const newFullname = event.target.value;
@@ -66,10 +72,10 @@ function Signup() {
                     localStorage.setItem("token", token);
                     const user = jwtDecode(token);
                     const accountType = user.acc_type;
-                    if(accountType == "user"){
+                    if (accountType == "user") {
                         history("/home");
                     }
-                    else if(accountType == "doctor"){
+                    else if (accountType == "doctor") {
                         history("/doctor-home");
                     }
                     console.log(response);

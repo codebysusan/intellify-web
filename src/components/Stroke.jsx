@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
+import axios from 'axios';
 
 
 function Stroke() {
@@ -9,16 +10,16 @@ function Stroke() {
         document.title = " MindMed | Stroke Prediction"
     }, []);
 
+    const baseUrl = "http://139.59.57.249:8000";
+
     const [age, setAge] = useState('');
     const [hypertension, setHypertension] = useState('');
-    const [evermarried, setEvermarried] = useState("");
-    const [residencetype, setResidencetype] = useState("");
-    const [bmi, setBmi] = useState("");
-    const [gender, setGender] = useState("");
     const [heartdisease, setHeartdisease] = useState("");
-    const [worktype, setWorktype] = useState("");
+    const [evermarried, setEvermarried] = useState("");
     const [avgglucoselevel, setAvgglucoselevel] = useState("");
+    const [bmi, setBmi] = useState("");
     const [smokingstatus, setSmokingstatus] = useState("");
+
 
 
     const changeAge = (event) => {
@@ -41,24 +42,12 @@ function Stroke() {
     }
 
 
-    const changeResidencetype = (event) => {
-        const newResidencetype = event.target.value;
-        console.log(newResidencetype);
-        setResidencetype(newResidencetype);
-    }
-
-
     const changeBmi = (event) => {
         const newBmi = event.target.value;
         console.log(newBmi);
         setBmi(newBmi);
     }
 
-    const changeGender = (event) => {
-        const newGender = event.target.value;
-        console.log(newGender);
-        setGender(newGender);
-    }
 
     const changeHeartdisease = (event) => {
         const newHeartdisease = event.target.value;
@@ -66,12 +55,6 @@ function Stroke() {
         setHeartdisease(newHeartdisease);
     }
 
-
-    const changeWorktype = (event) => {
-        const newWorktype = event.target.value;
-        console.log(newWorktype);
-        setWorktype(newWorktype);
-    }
 
     const changeAvgglucoselevel = (event) => {
         const newAvgglucoselevel = event.target.value;
@@ -89,8 +72,22 @@ function Stroke() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        console.log(` Age: ${age} \n Hypertension: ${hypertension} \n Evermarried: ${evermarried} \n Residence Type: ${residencetype} \n Bmi: ${bmi} \n Gender: ${gender} \n Heart Disease: ${heartdisease} \n Work Type: ${worktype} \n Avg Glucose Level: ${avgglucoselevel} \n Smoking Status: ${smokingstatus}`);
+        console.log(` Age: ${age} \n Hypertension: ${hypertension} \n Evermarried: ${evermarried} \n Bmi: ${bmi} \n Heart Disease: ${heartdisease} \n Avg Glucose Level: ${avgglucoselevel} \n Smoking Status: ${smokingstatus}`);
 
+        axios
+            .post(`${baseUrl}/stroke`, {
+                age: age,
+                hypertension: hypertension,
+                heart_disease: heartdisease,
+                ever_married: evermarried,
+                avg_glucose_level: avgglucoselevel,
+                bmi: bmi,
+                smoking_status: smokingstatus
+            }).then((response) => {
+                console.log(response.data);
+            }).catch((error) => {
+                console.log(error);
+            });
     }
 
 
@@ -98,9 +95,7 @@ function Stroke() {
         <div className=''>
             <Navbar />
             <p className='text-center mt-8 text-3xl'>Stroke Prediction</p>
-
             <form onSubmit={(event) => handleSubmit(event)}>
-
                 <div className='flex justify-center'>
                     <div className='flex flex-col justify-center md:gap-x-28 md:flex-row mx-6 md:mx-10 md:my-6 mt-8'>
                         <div className=''>
@@ -126,8 +121,8 @@ function Stroke() {
                                         id="hypertension"
                                         className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 w-full focus:border-blue-500 block mt-2 py-2.5 px-2'>
                                         <option value="select-one" disabled >Select one</option>
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                             </div>
@@ -141,23 +136,8 @@ function Stroke() {
                                         id="evermarried"
                                         className='border border-gray-300 text-gray-900 text-lg rounded-lg mt-2 focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-2'>
                                         <option value="select-one" disabled >Select one</option>
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div className='my-4 flex justify-center'>
-                                <div className='w-full'>
-                                    <label className='' htmlFor="residencetype">Residence Type</label>
-                                    <select
-                                        onChange={changeResidencetype}
-                                        defaultValue={"select-one"}
-                                        name="residencetype"
-                                        id="residencetype"
-                                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-2 mt-2'>
-                                        <option value="select-one" disabled >Select one</option>
-                                        <option value="rural">Rural</option>
-                                        <option value="urban">Urban</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                             </div>
@@ -172,51 +152,21 @@ function Stroke() {
                                         placeholder="Enter BMI value"
                                     />
                                 </div>
-
                             </div>
                         </div>
                         <div className=''>
-                            <div className='md:my-4 flex justify-center'>
-                                <div className='w-full'>
-                                    <label className='' htmlFor="gender">Gender</label>
-                                    <select
-                                        onChange={changeGender}
-                                        defaultValue={"select-one"}
-                                        name="gender"
-                                        id="gender"
-                                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-2 mt-2'>
-                                        <option value="select-one" disabled >Select one</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                        <option value="others">Others</option>
-                                    </select>
-                                </div>
-                            </div>
                             <div className='my-4 flex justify-center'>
                                 <div className='w-full'>
                                     <label className='' htmlFor="heartDisease">Heart Disease</label>
-                                    <input
-                                        onChange={changeHeartdisease}
-                                        type="text"
-                                        id="heartDisease"
-                                        className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5"
-                                        placeholder="Enter Heart Diseases"
-                                    />
-                                </div>
-                            </div>
-                            <div className='my-4 flex justify-center'>
-                                <div className='w-full'>
-                                    <label className='' htmlFor="worktype">Work Type</label>
                                     <select
-                                        onChange={changeWorktype}
+                                        onChange={changeHeartdisease}
                                         defaultValue={"select-one"}
-                                        name="worktype"
-                                        id="worktype"
-                                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-2 mt-2'>
-                                        <option value="select-one" disabled>Select one</option>
-                                        <option value="self-employed">Self Employed</option>
-                                        <option value="private">Private</option>
-                                        <option value="government">Goverment</option>
+                                        name="heartDisease"
+                                        id="heartDisease"
+                                        className='border border-gray-300 text-gray-900 text-lg rounded-lg mt-2 focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-2'>
+                                        <option value="select-one" disabled >Select one</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                             </div>
@@ -233,15 +183,19 @@ function Stroke() {
                                 </div>
                             </div>
                             <div className='my-4 flex justify-center'>
-                                <div>
+                                <div className='w-full'>
                                     <label className='' htmlFor="smokingstatus">Smoking Status</label>
-                                    <input
+                                    <select
                                         onChange={changeSmokingstatus}
-                                        type="text"
+                                        defaultValue={"select-one"}
+                                        name="smokingstatus"
                                         id="smokingstatus"
-                                        className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5"
-                                        placeholder="Enter Smoking Status"
-                                    />
+                                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-2 mt-2'>
+                                        <option value="select-one" disabled>Select one</option>
+                                        <option value="1">Former Smoker</option>
+                                        <option value="0">Never Smoke</option>
+                                        <option value="1">Current Smoker</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

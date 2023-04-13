@@ -8,6 +8,10 @@ function Login() {
 
     useEffect(()=>{
         document.title = "MindMed | Login"
+        const token = localStorage.getItem('token');
+        if(token != null){
+            history("/home");
+        }
     },[]);
 
     const baseUrl = "http://127.0.0.1:4000";
