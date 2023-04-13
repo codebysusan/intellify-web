@@ -19,8 +19,7 @@ function Stroke() {
     const [avgglucoselevel, setAvgglucoselevel] = useState("");
     const [bmi, setBmi] = useState("");
     const [smokingstatus, setSmokingstatus] = useState("");
-
-
+    const [outputMessage, setOutputMessage] = useState("");
 
     const changeAge = (event) => {
         const newAge = event.target.value;
@@ -85,6 +84,14 @@ function Stroke() {
                 smoking_status: smokingstatus
             }).then((response) => {
                 console.log(response.data);
+                const output = response.data.prediction;
+                if (output == 1) {
+                    setOutputMessage("You have a high chance of getting a stroke. It is a better idea to consult a doctor")
+                    // console.log("You have a high chance of getting a stroke");
+                } else if (output == 0) {
+                    setOutputMessage("You have a low chance of getting a stroke");
+                    // console.log("You have a low chance of getting a stroke");
+                }
             }).catch((error) => {
                 console.log(error);
             });
@@ -108,6 +115,7 @@ function Stroke() {
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
                                         placeholder="Enter your age"
+                                        required
                                     />
                                 </div>
                             </div>
@@ -119,7 +127,9 @@ function Stroke() {
                                         defaultValue={"select-one"}
                                         name="hypertension"
                                         id="hypertension"
-                                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 w-full focus:border-blue-500 block mt-2 py-2.5 px-2'>
+                                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 w-full focus:border-blue-500 block mt-2 py-2.5 px-2'
+                                        required
+                                    >
                                         <option value="select-one" disabled >Select one</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
@@ -134,7 +144,9 @@ function Stroke() {
                                         defaultValue={"select-one"}
                                         name="evermarried"
                                         id="evermarried"
-                                        className='border border-gray-300 text-gray-900 text-lg rounded-lg mt-2 focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-2'>
+                                        className='border border-gray-300 text-gray-900 text-lg rounded-lg mt-2 focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-2'
+                                        required
+                                    >
                                         <option value="select-one" disabled >Select one</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
@@ -150,6 +162,7 @@ function Stroke() {
                                         id="bmi"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5"
                                         placeholder="Enter BMI value"
+                                        required
                                     />
                                 </div>
                             </div>
@@ -163,8 +176,12 @@ function Stroke() {
                                         defaultValue={"select-one"}
                                         name="heartDisease"
                                         id="heartDisease"
-                                        className='border border-gray-300 text-gray-900 text-lg rounded-lg mt-2 focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-2'>
-                                        <option value="select-one" disabled >Select one</option>
+                                        className='border border-gray-300 text-gray-900 text-lg rounded-lg mt-2 focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-2'
+                                        required
+                                    >
+                                        <option value="select-one" disabled >
+                                            Select one
+                                        </option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
                                     </select>
@@ -179,6 +196,7 @@ function Stroke() {
                                         id="avgglucoselevel"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5"
                                         placeholder="Enter Glucose Level"
+                                        required
                                     />
                                 </div>
                             </div>
@@ -190,7 +208,9 @@ function Stroke() {
                                         defaultValue={"select-one"}
                                         name="smokingstatus"
                                         id="smokingstatus"
-                                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-2 mt-2'>
+                                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-2 mt-2'
+                                        required
+                                    >
                                         <option value="select-one" disabled>Select one</option>
                                         <option value="1">Former Smoker</option>
                                         <option value="0">Never Smoke</option>
@@ -205,6 +225,11 @@ function Stroke() {
                     <button className='bg-blue-500 hover:bg-blue-700 text-white font-medium text-lg py-2 px-4 rounded-md' type="submit">Check</button>
                 </div>
             </form>
+            <div>
+                <p className='text-center text-2xl'>
+                    {outputMessage}
+                </p>
+            </div>
         </div>
     )
 }
