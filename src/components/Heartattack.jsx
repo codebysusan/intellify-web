@@ -19,7 +19,7 @@ function Heartattack() {
     }
   }, []);
 
-  const predictionUrl = import.meta.env.REACT_APP_PREDICTION_URL;
+  const predictionUrl = import.meta.env.VITE_PREDICTION_URL;
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [cp, setCp] = useState("");

@@ -8,10 +8,6 @@ function Signup() {
 
     useEffect(() => {
         document.title = "MindMed | Signup"
-        // const token = localStorage.getItem('token');
-        // if (token == null) {
-        //     history("/login");
-        // }
     }, []);
 
     const [fullname, setFullname] = useState("");
