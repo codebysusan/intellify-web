@@ -83,16 +83,25 @@ function Diabetes() {
     );
 
     axios
-      .post(`${predictionUrl}/diabetes`, {
-        age: age,
-        pregnancies: pregnancies,
-        glucose: glucose,
-        blood_pressure: bloodPressure,
-        skin_thickness: skinThickness,
-        insulin: insulin,
-        bmi: bmi,
-        diabetes_pedigree_function: diabetesPedigree,
-      })
+      .post(
+        `${predictionUrl}/diabetes`,
+        {
+          age: age,
+          pregnancies: pregnancies,
+          glucose: glucose,
+          blood_pressure: bloodPressure,
+          skin_thickness: skinThickness,
+          insulin: insulin,
+          bmi: bmi,
+          diabetes_pedigree_function: diabetesPedigree,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
       .then((response) => {
         response.json();
       })
