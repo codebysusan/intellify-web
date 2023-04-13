@@ -3,8 +3,12 @@ import Navbar from './Navbar'
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
+import { useNavigate } from 'react-router-dom';
+
 
 function Stroke() {
+
+    const history = useNavigate();
     useEffect(() => {
         document.title = " MindMed | Stroke Prediction"
         const token = localStorage.getItem('token');
@@ -19,7 +23,7 @@ function Stroke() {
         }
     }, []);
 
-    const predictionUrl = import.meta.env.VITE_PREDICTION_URL;
+    const predictionUrl = import.meta.env.REACT_APP_PREDICTION_URL;
 
     const [age, setAge] = useState('');
     const [hypertension, setHypertension] = useState('');

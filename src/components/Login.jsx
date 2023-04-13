@@ -50,6 +50,7 @@ function Login() {
                 console.log(response);
                 if (response.status == 200) {
                     const token = response.data.token;
+                    console.log(token);
                     localStorage.setItem('token', token);
                     const user = jwtDecode(token);
                     const accountType = user.acc_type;
