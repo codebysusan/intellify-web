@@ -6,13 +6,13 @@ import jwtDecode from 'jwt-decode';
 
 function Login() {
 
-    useEffect(()=>{
+    useEffect(() => {
         document.title = "MindMed | Login"
         const token = localStorage.getItem('token');
-        if(token != null){
+        if (token != null) {
             history("/home");
         }
-    },[]);
+    }, []);
 
     const baseUrl = import.meta.env.VITE_BASE_URL;
 
@@ -48,15 +48,14 @@ function Login() {
                 password: password
             }).then((response) => {
                 console.log(response);
-                if(response.statusText == "OK"){
+                if (response.status == 200) {
                     const token = response.data.token;
-                    navigateHome();
                     localStorage.setItem('token', token);
                     const user = jwtDecode(token);
                     const accountType = user.acc_type;
-                    if(accountType == "doctor"){
+                    if (accountType == "doctor") {
                         history("/doctor-home")
-                    }else if(accountType == "user"){
+                    } else if (accountType == "user") {
                         history("/home")
                     }
                 }
