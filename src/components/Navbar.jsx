@@ -66,7 +66,7 @@ function Navbar() {
     }
 
     return (
-        <div className='flex sm:flex-row justify-between pl-8 pr-4 py-4 items-center '>
+        <div className='flex sm:flex-row bg-white justify-between pl-8 pr-4 py-4 items-center '>
             <div className='text-2xl font-semibold'>
                 <p className='hover:cursor-pointer' onClick={homeRoute}>
                     MindMed

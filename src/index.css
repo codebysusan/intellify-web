@@ -1,26 +1,30 @@
 body {
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
+  background-color: #5494da;
 }
 
 /* #herosection{
   background-image: linear-gradient(to bottom right,red, blue);
 } */
 
-.gradient{
-  background-image: linear-gradient(to bottom right,red, blue);
+.gradient {
+  background-image: linear-gradient(to bottom right, red, blue);
 }
 
-.light-color{
+.light-color {
   background-color: #a7e2e3;
 }
 
-.dark-color{
+.dark-color {
   background-color: #293132;
 }
 
-.text-dark{
+.text-dark {
   color: #293132;
 }
 
-
+.primary-color {
+  background-color: #5494da;
+  /* color: #73b9ee; */
+}

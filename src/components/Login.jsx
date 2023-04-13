@@ -43,7 +43,7 @@ function Login() {
         console.log(`Email: ${email} \nPassword: ${password}`);
 
         axios
-            .post(`${baseUrl}/login/`, {
+            .post(`${baseUrl}/login`, {
                 email: email,
                 password: password
             }).then((response) => {

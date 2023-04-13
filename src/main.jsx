@@ -18,6 +18,7 @@ import SearchDoctors from './components/SearchDoctors';
 import DoctorHome from './components/DoctorHome';
 import SymptomSuggestion from './components/SymptomSuggestion';
 import BreastCancerPredicition from './components/BreastCancerPredicition';
+import NewHome from './components/NewHome';
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
   {
     path: "/breast-cancer-prediction",
     element: <BreastCancerPredicition />,
+  },
+  {
+    path: "/new-home",
+    element: <NewHome />,
   },
 ]);
 

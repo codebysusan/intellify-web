@@ -19,15 +19,16 @@ function Home() {
     useEffect(() => {
         document.title = "MindMed | Home";
         const token = localStorage.getItem('token');
-        if (token == null) {
-            history("/login");
-        } else {
-            const userData = jwtDecode(token);
-            console.log(userData.acc_type);
-            if (userData.acc_type == "doctor") {
-                history("/doctor-home");
-            }
-        }
+        
+        // if (token == null) {
+        //     history("/login");
+        // } else {
+        //     const userData = jwtDecode(token);
+        //     console.log(userData.acc_type);
+        //     if (userData.acc_type == "doctor") {
+        //         history("/doctor-home");
+        //     }
+        // }
     }, []);
 
     useEffect(() => {
