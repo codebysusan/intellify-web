@@ -19,7 +19,7 @@ function Heartattack() {
     }
   }, []);
 
-  const baseUrl = "http://139.59.57.249:8000";
+  const predictionUrl = import.meta.env.REACT_APP_PREDICTION_URL;
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [cp, setCp] = useState("");
@@ -122,7 +122,7 @@ function Heartattack() {
     console.log(` Age: ${age} \n Gender: ${gender} \n cp: ${cp} \n trestbps: ${trestbps} \n chol: ${chol} \n slope: ${slope} \n fbs: ${fbs} \n restecg: ${restecg} \n thalach: ${thalach} \n exang: ${exang} \n oldpeak: ${oldpeak} \n ca: ${ca}`);
 
     axios
-      .post(`${baseUrl}/heartattack`, {
+      .post(`${predictionUrl}/heartattack`, {
         age: age,
         sex: gender,
         cp: cp,

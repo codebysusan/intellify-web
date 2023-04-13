@@ -19,7 +19,8 @@ function Signup() {
     const [password, setPassword] = useState("");
     const [confirmpassword, setConfirmpassword] = useState("");
     const [usertype, setUsertype] = useState("");
-    const baseUrl = "http://127.0.0.1:4000";
+
+    const baseUrl = import.meta.env.VITE_BASE_URL;
 
     const history = useNavigate();
 
@@ -59,6 +60,7 @@ function Signup() {
     const handleSignup = (event) => {
         event.preventDefault();
         // console.log(`Fullname: ${fullname} \nEmail: ${email} \nPassword: ${password} \nConfirm Password: ${confirmpassword} \nUsertype: ${usertype}`);
+        console.log(import.meta.env.VITE_BASE_URL);
 
         axios
             .post(`${baseUrl}/user`, {

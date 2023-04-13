@@ -7,7 +7,7 @@ import axios from 'axios';
 function BreastCancerPredicition() {
 
 
-    const baseUrl = "http://139.59.57.249:8000";
+    const predictionUrl = import.meta.env.REACT_APP_PREDICTION_URL;
 
     const [textureMean, setTextureMean] = useState();
     const [smoothnessMean, setSmoothnessMean] = useState();
@@ -170,9 +170,8 @@ function BreastCancerPredicition() {
 
     const checkBreastCancer = (event) => {
         event.preventDefault();
-        console.log("CLicke")
         axios
-            .post(`${baseUrl}/breastcancer`, {
+            .post(`${predictionUrl}/breastcancer`, {
                 texture_mean: textureMean,
                 smoothness_mean: smoothnessMean,
                 compactness_mean: compactnessMean,

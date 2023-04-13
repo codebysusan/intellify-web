@@ -19,7 +19,7 @@ function Diabetes() {
         }
     }, []);
 
-    const baseUrl = "http://139.59.57.249:8000";
+    const predictionUrl = import.meta.env.REACT_APP_PREDICTION_URL;
     const [age, setAge] = useState('');
     const [pregnancies, setPregnancies] = useState('');
     const [glucose, setGlucose] = useState("");
@@ -85,7 +85,7 @@ function Diabetes() {
 
         console.log(` Age: ${age} \n Pregnancies: ${pregnancies} \n Glucose: ${glucose} \n Blood Pressure: ${bloodPressure} \n Skin Thickness: ${skinThickness} \n Insulin: ${insulin} \n BMI: ${bmi} \n Diabetes Pedigree: ${diabetesPedigree}`);
 
-        axios.post(`${baseUrl}/diabetes`, {
+        axios.post(`${predictionUrl}/diabetes`, {
             age: age,
             pregnancies: pregnancies,
             glucose: glucose,

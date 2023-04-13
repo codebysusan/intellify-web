@@ -5,8 +5,6 @@ import jwtDecode from 'jwt-decode';
 
 
 function Stroke() {
-
-
     useEffect(() => {
         document.title = " MindMed | Stroke Prediction"
         const token = localStorage.getItem('token');
@@ -21,7 +19,7 @@ function Stroke() {
         }
     }, []);
 
-    const baseUrl = "http://139.59.57.249:8000";
+    const predictionUrl = import.meta.env.REACT_APP_PREDICTION_URL;
 
     const [age, setAge] = useState('');
     const [hypertension, setHypertension] = useState('');
@@ -85,7 +83,7 @@ function Stroke() {
         console.log(` Age: ${age} \n Hypertension: ${hypertension} \n Evermarried: ${evermarried} \n Bmi: ${bmi} \n Heart Disease: ${heartdisease} \n Avg Glucose Level: ${avgglucoselevel} \n Smoking Status: ${smokingstatus}`);
 
         axios
-            .post(`${baseUrl}/stroke`, {
+            .post(`${predictionUrl}/stroke`, {
                 age: age,
                 hypertension: hypertension,
                 heart_disease: heartdisease,
