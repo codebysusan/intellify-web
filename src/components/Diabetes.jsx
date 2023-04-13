@@ -82,23 +82,29 @@ function Diabetes() {
       ` Age: ${age} \n Pregnancies: ${pregnancies} \n Glucose: ${glucose} \n Blood Pressure: ${bloodPressure} \n Skin Thickness: ${skinThickness} \n Insulin: ${insulin} \n BMI: ${bmi} \n Diabetes Pedigree: ${diabetesPedigree}`
     );
 
-    await fetch(`${predictionUrl}/diabetes`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        age: age,
-        pregnancies: pregnancies,
-        glucose: glucose,
-        blood_pressure: bloodPressure,
-        skin_thickness: skinThickness,
-        insulin: insulin,
-        bmi: bmi,
-        diabetes_pedigree_function: diabetesPedigree,
-      }),
-    })
-      .then((response) => response.json())
+    axios
+      .post(
+        `${predictionUrl}/diabetes`,
+        {
+          age: age,
+          pregnancies: pregnancies,
+          glucose: glucose,
+          blood_pressure: bloodPressure,
+          skin_thickness: skinThickness,
+          insulin: insulin,
+          bmi: bmi,
+          diabetes_pedigree_function: diabetesPedigree,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
+      .then((response) => {
+        response.json();
+      })
       .then((data) => {
         console.log(data);
         const { prediction, yes, no } = data;
@@ -116,6 +122,41 @@ function Diabetes() {
         console.log(error);
       });
   };
+
+  // await fetch(`${predictionUrl}/diabetes`, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({
+  //     age: age,
+  //     pregnancies: pregnancies,
+  //     glucose: glucose,
+  //     blood_pressure: bloodPressure,
+  //     skin_thickness: skinThickness,
+  //     insulin: insulin,
+  //     bmi: bmi,
+  //     diabetes_pedigree_function: diabetesPedigree,
+  //   }),
+  // })
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     console.log(data);
+  //     const { prediction, yes, no } = data;
+  //     if (prediction == 1) {
+  //       setOutputMessage(
+  //         "You have a high chance of getting a diabetes. It is a better idea to consult a doctor"
+  //       );
+  //       // console.log("You have a high chance of getting a stroke");
+  //     } else if (prediction == 0) {
+  //       setOutputMessage("You have a low chance of getting a diabetes.");
+  //       // console.log("You have a low chance of getting a stroke");
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+  //   };
 
   return (
     <div className=''>

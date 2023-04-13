@@ -86,6 +86,7 @@ function Stroke() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         age: age,
@@ -114,6 +115,8 @@ function Stroke() {
       .catch((error) => {
         console.log(error);
       });
+
+    //   rewrite the above code using fetch and async await also should not creaet cors issue
   };
 
   return (
