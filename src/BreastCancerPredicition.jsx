@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 import Navbar from './components/Navbar'
 
 function BreastCancerPredicition() {
@@ -27,7 +27,147 @@ function BreastCancerPredicition() {
     const [concavePointsWorst, setConcavePointsWorst] = useState("");
     const [symmetryWorst, setSymmetryWorst] = useState("");
     const [fractalDimensionWorst, setFractalDimensionWorst] = useState("");
+
+    const changeTextureMean = (event) => {
+        const newTextureMean = event.target.value;
+        console.log(newTextureMean);
+        setTextureMean(newTextureMean);
+    }
+
+    const changeSmoothnessMean = (event) => {
+        const newSmoothnessMean = event.target.value;
+        console.log(newSmoothnessMean);
+        setSmoothnessMean(newSmoothnessMean);
+    }
+
+    const changeCompactnessMean = (event) => {
+        const newCompactnessMean = event.target.value;
+        console.log(newCompactnessMean);
+        setCompactnessMean(newCompactnessMean);
+    }
+
+    const changeConcavePointsMean = (event) => {
+        const newConcavePointsMean = event.target.value;
+        console.log(newConcavePointsMean);
+        setConcavePointsMean(newConcavePointsMean);
+    }
+
+    const changeSymmetryMean = (event) => {
+        const newSymmetryMean = event.target.value;
+        console.log(newSymmetryMean);
+        setSymmetryMean(newSymmetryMean);
+    }
+
+
+    const changeFractalDimensionMean = (event) => {
+        const newFractalDimensionMean = event.target.value;
+        console.log(newFractalDimensionMean);
+        setFractalDimensionMean(newFractalDimensionMean);
+    }
     
+    const changeTextureSe = (event) => {
+        const newTextureSe = event.target.value;
+        console.log(newTextureSe);
+        setTextureSe(newTextureSe);
+    }
+
+    const changeAreaSe = (event) => {
+        const newAreaSe = event.target.value;
+        console.log(newAreaSe);
+        setAreaSe(newAreaSe);
+    }
+
+    const changeSmoothnessSe = (event) => {
+        const newSmoothnessSe = event.target.value;
+        console.log(newSmoothnessSe);
+        setSmoothnessSe(newSmoothnessSe);
+    }
+
+    const changeCompactnessSe = (event) => {
+        const newCompactnessSe = event.target.value;
+        console.log(newCompactnessSe);
+        setCompactnessSe(newCompactnessSe);
+    }
+
+    const changeConcavitySe = (event) => {
+        const newConcavitySe = event.target.value;
+        console.log(newConcavitySe);
+        setConcavitySe(newConcavitySe);
+    }
+
+    const changeConcavePointsSe = (event) => {
+        const newConcavePointsSe = event.target.value;
+        console.log(newConcavePointsSe);
+        setConcavePointsSe(newConcavePointsSe);
+    }
+
+    const changeSymmetrySe = (event) => {
+        const newSymmetrySe = event.target.value;
+        console.log(newSymmetrySe);
+        setSymmetrySe(newSymmetrySe);
+    }
+
+
+    const changeFractalDimensionSe = (event) => {
+        const newFractalDimensionSe = event.target.value;
+        console.log(newFractalDimensionSe);
+        setFractalDimensionSe(newFractalDimensionSe);
+    }
+
+    const changeTextureWorst = (event) => {
+        const newTextureWorst = event.target.value;
+        console.log(newTextureWorst);
+        setTextureWorst(newTextureWorst);
+    }
+
+    const changeAreaWorst = (event) => {
+        const newAreaWorst = event.target.value;
+        console.log(newAreaWorst);
+        setAreaWorst(newAreaWorst);
+    }
+
+    const changeSmoothnessWorst = (event) => {
+        const newSmoothnessWorst = event.target.value;
+        console.log(newSmoothnessWorst);
+        setSmoothnessWorst(newSmoothnessWorst);
+    }
+
+    const changeCompactnessWorst = (event) => {
+        const newCompactnessWorst = event.target.value;
+        console.log(newCompactnessWorst);
+        setCompactnessWorst(newCompactnessWorst);
+    }
+
+    const changeConcavityWorst = (event) => {
+        const newConcavityWorst = event.target.value;
+        console.log(newConcavityWorst);
+        setConcavityWorst(newConcavityWorst);
+    }
+
+    const changeConcavePointsWorst = (event) => {
+        const newConcavePointsWorst = event.target.value;
+        console.log(newConcavePointsWorst);
+        setConcavePointsWorst(newConcavePointsWorst);
+    }
+
+    const changeSymmetryWorst = (event) => {
+        const newSymmetryWorst = event.target.value;
+        console.log(newSymmetryWorst);
+        setSymmetryWorst(newSymmetryWorst);
+    }
+
+    const changeFractalDimensionWorst = (event) => {
+        const newFractalDimensionWorst = event.target.value;
+        console.log(newFractalDimensionWorst);
+        setFractalDimensionWorst(newFractalDimensionWorst);
+    }
+
+    const checkBreastCancer = (event) => {
+        event.preventDefault();
+
+    }
+
+
     return (
         <div className=''>
             <Navbar />
@@ -40,6 +180,7 @@ function BreastCancerPredicition() {
                                 <div className=''>
                                     <label className='' htmlFor="age">Texture Mean</label>
                                     <input
+                                        onChange={changeTextureMean}
                                         type="text"
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
@@ -52,6 +193,7 @@ function BreastCancerPredicition() {
                                 <div className='w-full'>
                                     <label className='' htmlFor="age">Smoothness Mean</label>
                                     <input
+                                        onChange={changeSmoothnessMean}
                                         type="text"
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
@@ -64,6 +206,7 @@ function BreastCancerPredicition() {
                                 <div className='w-full'>
                                     <label className='' htmlFor="age">Compactness Mean</label>
                                     <input
+                                        onChange={changeCompactnessMean}
                                         type="text"
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
@@ -76,7 +219,7 @@ function BreastCancerPredicition() {
                                 <div>
                                     <label className='' htmlFor="bmi">Concave Points Mean</label>
                                     <input
-                                        // onChange={changeBmi}
+                                        onChange={changeConcavePointsMean}
                                         type="text"
                                         id="bmi"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5"
@@ -89,6 +232,7 @@ function BreastCancerPredicition() {
                                 <div>
                                     <label className='' htmlFor="bmi">Smoothness se</label>
                                     <input
+                                        onChange={changeSmoothnessSe}
                                         type="text"
                                         id="bmi"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5"
@@ -101,6 +245,7 @@ function BreastCancerPredicition() {
                                 <div>
                                     <label className='' htmlFor="bmi">Concavity se</label>
                                     <input
+                                        onChange={changeConcavitySe}
                                         type="text"
                                         id="bmi"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5"
@@ -113,6 +258,7 @@ function BreastCancerPredicition() {
                                 <div>
                                     <label className='' htmlFor="bmi">Symmetry se</label>
                                     <input
+                                        onChange={changeSymmetrySe}
                                         type="text"
                                         id="bmi"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5"
@@ -125,6 +271,7 @@ function BreastCancerPredicition() {
                                 <div>
                                     <label className='' htmlFor="bmi">Texture Worst</label>
                                     <input
+                                        onChange={changeTextureWorst}
                                         type="text"
                                         id="bmi"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5"
@@ -137,6 +284,7 @@ function BreastCancerPredicition() {
                                 <div>
                                     <label className='' htmlFor="bmi">Smoothness Worst</label>
                                     <input
+                                        onChange={changeSmoothnessWorst}
                                         type="text"
                                         id="bmi"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5"
@@ -149,6 +297,7 @@ function BreastCancerPredicition() {
                                 <div>
                                     <label className='' htmlFor="bmi">Concavity Worst</label>
                                     <input
+                                        onChange={changeConcavityWorst}
                                         type="text"
                                         id="bmi"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5"
@@ -161,6 +310,7 @@ function BreastCancerPredicition() {
                                 <div>
                                     <label className='' htmlFor="bmi">Symmetry Worst</label>
                                     <input
+                                        onChange={changeSymmetryWorst}
                                         type="text"
                                         id="bmi"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5"
@@ -175,6 +325,7 @@ function BreastCancerPredicition() {
                                 <div className='w-full'>
                                     <label className='' htmlFor="age">Symmetry Mean</label>
                                     <input
+                                        onChange={changeSymmetryMean}
                                         type="text"
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
@@ -187,6 +338,7 @@ function BreastCancerPredicition() {
                                 <div className='w-full'>
                                     <label className='' htmlFor="avgglucoselevel">Fractal Dimension Mean</label>
                                     <input
+                                        onChange={changeFractalDimensionMean}
                                         type="text"
                                         id="avgglucoselevel"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5"
@@ -199,6 +351,7 @@ function BreastCancerPredicition() {
                                 <div className='w-full'>
                                     <label className='' htmlFor="age">Texture se</label>
                                     <input
+                                        onChange={changeTextureSe}
                                         type="text"
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
@@ -211,6 +364,7 @@ function BreastCancerPredicition() {
                                 <div className='w-full'>
                                     <label className='' htmlFor="age">Area se</label>
                                     <input
+                                        onChange={changeAreaSe}
                                         type="text"
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
@@ -223,6 +377,7 @@ function BreastCancerPredicition() {
                                 <div className='w-full'>
                                     <label className='' htmlFor="age">Compactness se</label>
                                     <input
+                                        onChange={changeCompactnessSe}
                                         type="text"
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
@@ -235,6 +390,7 @@ function BreastCancerPredicition() {
                                 <div className='w-full'>
                                     <label className='' htmlFor="age">Concave Points se</label>
                                     <input
+                                        onChange={changeConcavePointsSe}
                                         type="text"
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
@@ -247,6 +403,7 @@ function BreastCancerPredicition() {
                                 <div className='w-full'>
                                     <label className='' htmlFor="age">Fractal Dimension se</label>
                                     <input
+                                        onChange={changeFractalDimensionSe}
                                         type="text"
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
@@ -259,6 +416,7 @@ function BreastCancerPredicition() {
                                 <div className='w-full'>
                                     <label className='' htmlFor="age">Area Worst</label>
                                     <input
+                                        onChange={changeAreaWorst}
                                         type="text"
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
@@ -271,6 +429,7 @@ function BreastCancerPredicition() {
                                 <div className='w-full'>
                                     <label className='' htmlFor="age">Compactness Worst</label>
                                     <input
+                                        onChange={changeCompactnessWorst}
                                         type="text"
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
@@ -283,6 +442,7 @@ function BreastCancerPredicition() {
                                 <div className='w-full'>
                                     <label className='' htmlFor="age">Concave Points Worst</label>
                                     <input
+                                        onChange={changeConcavePointsWorst}
                                         type="text"
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
@@ -295,6 +455,7 @@ function BreastCancerPredicition() {
                                 <div className='w-full'>
                                     <label className='' htmlFor="age">Fractal Dimension Worst</label>
                                     <input
+                                        onChange={changeFractalDimensionWorst}
                                         type="text"
                                         id="age"
                                         className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2"
