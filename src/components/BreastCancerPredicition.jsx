@@ -7,7 +7,7 @@ import axios from 'axios';
 function BreastCancerPredicition() {
 
 
-    const predictionUrl = import.meta.env.VITE_PREDICTION_URL;
+    const predictionUrl = import.meta.env.REACT_APP_PREDICTION_URL;
 
     const [textureMean, setTextureMean] = useState();
     const [smoothnessMean, setSmoothnessMean] = useState();

@@ -18,7 +18,7 @@ function Diabetes() {
         }
     }, []);
 
-    const predictionUrl = import.meta.env.VITE_PREDICTION_URL;
+    const predictionUrl = import.meta.env.REACT_APP_PREDICTION_URL;
     const [age, setAge] = useState('');
     const [pregnancies, setPregnancies] = useState('');
     const [glucose, setGlucose] = useState("");
