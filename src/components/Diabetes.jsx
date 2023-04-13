@@ -12,7 +12,6 @@ function Diabetes() {
             history("/login");
         } else {
             const userData = jwtDecode(token);
-            console.log(userData.acc_type);
             if (userData.acc_type == "doctor") {
                 history("/doctor-home");
             }

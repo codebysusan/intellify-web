@@ -36,135 +36,113 @@ function BreastCancerPredicition() {
 
     const changeTextureMean = (event) => {
         const newTextureMean = event.target.value;
-        console.log(newTextureMean);
         setTextureMean(newTextureMean);
     }
 
     const changeSmoothnessMean = (event) => {
         const newSmoothnessMean = event.target.value;
-        console.log(newSmoothnessMean);
         setSmoothnessMean(newSmoothnessMean);
     }
 
     const changeCompactnessMean = (event) => {
         const newCompactnessMean = event.target.value;
-        console.log(newCompactnessMean);
         setCompactnessMean(newCompactnessMean);
     }
 
     const changeConcavePointsMean = (event) => {
         const newConcavePointsMean = event.target.value;
-        console.log(newConcavePointsMean);
         setConcavePointsMean(newConcavePointsMean);
     }
 
     const changeSymmetryMean = (event) => {
         const newSymmetryMean = event.target.value;
-        console.log(newSymmetryMean);
         setSymmetryMean(newSymmetryMean);
     }
 
 
     const changeFractalDimensionMean = (event) => {
         const newFractalDimensionMean = event.target.value;
-        console.log(newFractalDimensionMean);
         setFractalDimensionMean(newFractalDimensionMean);
     }
 
     const changeTextureSe = (event) => {
         const newTextureSe = event.target.value;
-        console.log(newTextureSe);
         setTextureSe(newTextureSe);
     }
 
     const changeAreaSe = (event) => {
         const newAreaSe = event.target.value;
-        console.log(newAreaSe);
         setAreaSe(newAreaSe);
     }
 
     const changeSmoothnessSe = (event) => {
         const newSmoothnessSe = event.target.value;
-        console.log(newSmoothnessSe);
         setSmoothnessSe(newSmoothnessSe);
     }
 
     const changeCompactnessSe = (event) => {
         const newCompactnessSe = event.target.value;
-        console.log(newCompactnessSe);
         setCompactnessSe(newCompactnessSe);
     }
 
     const changeConcavitySe = (event) => {
         const newConcavitySe = event.target.value;
-        console.log(newConcavitySe);
         setConcavitySe(newConcavitySe);
     }
 
     const changeConcavePointsSe = (event) => {
         const newConcavePointsSe = event.target.value;
-        console.log(newConcavePointsSe);
         setConcavePointsSe(newConcavePointsSe);
     }
 
     const changeSymmetrySe = (event) => {
         const newSymmetrySe = event.target.value;
-        console.log(newSymmetrySe);
         setSymmetrySe(newSymmetrySe);
     }
 
 
     const changeFractalDimensionSe = (event) => {
         const newFractalDimensionSe = event.target.value;
-        console.log(newFractalDimensionSe);
         setFractalDimensionSe(newFractalDimensionSe);
     }
 
     const changeTextureWorst = (event) => {
         const newTextureWorst = event.target.value;
-        console.log(newTextureWorst);
         setTextureWorst(newTextureWorst);
     }
 
     const changeAreaWorst = (event) => {
         const newAreaWorst = event.target.value;
-        console.log(newAreaWorst);
         setAreaWorst(newAreaWorst);
     }
 
     const changeSmoothnessWorst = (event) => {
         const newSmoothnessWorst = event.target.value;
-        console.log(newSmoothnessWorst);
         setSmoothnessWorst(newSmoothnessWorst);
     }
 
     const changeCompactnessWorst = (event) => {
         const newCompactnessWorst = event.target.value;
-        console.log(newCompactnessWorst);
         setCompactnessWorst(newCompactnessWorst);
     }
 
     const changeConcavityWorst = (event) => {
         const newConcavityWorst = event.target.value;
-        console.log(newConcavityWorst);
         setConcavityWorst(newConcavityWorst);
     }
 
     const changeConcavePointsWorst = (event) => {
         const newConcavePointsWorst = event.target.value;
-        console.log(newConcavePointsWorst);
         setConcavePointsWorst(newConcavePointsWorst);
     }
 
     const changeSymmetryWorst = (event) => {
         const newSymmetryWorst = event.target.value;
-        console.log(newSymmetryWorst);
         setSymmetryWorst(newSymmetryWorst);
     }
 
     const changeFractalDimensionWorst = (event) => {
         const newFractalDimensionWorst = event.target.value;
-        console.log(newFractalDimensionWorst);
         setFractalDimensionWorst(newFractalDimensionWorst);
     }
 
@@ -196,7 +174,6 @@ function BreastCancerPredicition() {
                 fractal_dimension_worst: fractalDimensionWorst
             })
             .then((response) => {
-                console.log(response.data);
                 const output = response.data.prediction;
                 if (output == 1) {
                     setOutputMessage("You have a high chance of having breast cancer. It is a better idea to consult a doctor")
