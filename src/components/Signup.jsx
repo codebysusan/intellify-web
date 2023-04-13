@@ -17,6 +17,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
   const [usertype, setUsertype] = useState("");
+  const [error, setError] = useState(null);
 
   const baseUrl = import.meta.env.VITE_BASE_URL;
 
@@ -81,10 +82,14 @@ function Signup() {
           } else if (accountType == "doctor") {
             history("/doctor-home");
           }
+        } else {
+          console.log(data);
+          setError("Email already exists !!!");
         }
       })
       .catch((error) => {
         console.log(error);
+        setError(error);
       });
   };
 
@@ -99,6 +104,17 @@ function Signup() {
       <Navbar />
       <div className='text-black justify-center h-5/6 flex flex-col'>
         <form onSubmit={handleSignup}>
+          <div className='flex justify-center flex-row '>
+            <div className='md:w-1/4 w-3/4 mb-6'>
+              {error ? (
+                <div className='bg-red-500 rounded py-2 px-4 text-white'>
+                  {error}
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
           <div className='flex justify-center flex-row '>
             <div className='md:w-1/4 mb-6 w-3/4'>
               <label
