@@ -83,11 +83,12 @@ function Diabetes() {
     );
 
     await fetch(`${predictionUrl}/diabetes`, {
-      referrerPolicy: "http://139.59.57.249:8000/",
+      referrerPolicy: "origin-when-cross-origin",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
+        Referer: "http://139.59.57.249:8000/",
       },
       body: JSON.stringify({
         age: age,
