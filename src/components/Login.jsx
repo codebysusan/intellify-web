@@ -48,7 +48,7 @@ function Login() {
                 password: password
             }).then((response) => {
                 console.log(response);
-                if (response.status == 200) {
+                if (response.data.message == "Login successful") {
                     const token = response.data.token;
                     console.log(token);
                     localStorage.setItem('token', token);
