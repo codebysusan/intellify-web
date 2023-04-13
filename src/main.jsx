@@ -19,6 +19,7 @@ import DoctorHome from './components/DoctorHome';
 import SymptomSuggestion from './components/SymptomSuggestion';
 import BreastCancerPredicition from './components/BreastCancerPredicition';
 import NewHome from './components/NewHome';
+import DiseasePrediction from './components/DiseasePrediction';
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
   {
     path: "/new-home",
     element: <NewHome />,
+  },
+  {
+    path: "/disease-prediction",
+    element: <DiseasePrediction />,
   },
 ]);
 
