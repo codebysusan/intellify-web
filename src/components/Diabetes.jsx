@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import DataCard from "./DataCard";
 
 function Diabetes() {
   useEffect(() => {
@@ -27,6 +28,8 @@ function Diabetes() {
   const [bmi, setBmi] = useState("");
   const [diabetesPedigree, setDiabetesPedigree] = useState("");
   const [outputMessage, setOutputMessage] = useState("");
+  const [dataCardVisibile, setDataCardVisibile] = useState(false);
+  const [prediction, setPrediction] = useState({});
 
   const changeAge = (event) => {
     const newAge = event.target.value;
@@ -82,32 +85,28 @@ function Diabetes() {
       ` Age: ${age} \n Pregnancies: ${pregnancies} \n Glucose: ${glucose} \n Blood Pressure: ${bloodPressure} \n Skin Thickness: ${skinThickness} \n Insulin: ${insulin} \n BMI: ${bmi} \n Diabetes Pedigree: ${diabetesPedigree}`
     );
 
-    axios
-      .post(
-        `${predictionUrl}/diabetes`,
-        {
-          age: age,
-          pregnancies: pregnancies,
-          glucose: glucose,
-          blood_pressure: bloodPressure,
-          skin_thickness: skinThickness,
-          insulin: insulin,
-          bmi: bmi,
-          diabetes_pedigree_function: diabetesPedigree,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      )
-      .then((response) => {
-        response.json();
-      })
+    await fetch(`${predictionUrl}/diabetes`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        age: age,
+        pregnancies: pregnancies,
+        glucose: glucose,
+        blood_pressure: bloodPressure,
+        skin_thickness: skinThickness,
+        insulin: insulin,
+        bmi: bmi,
+        diabetes_pedigree_function: diabetesPedigree,
+      }),
+    })
+      .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        setDataCardVisibile(true);
         const { prediction, yes, no } = data;
+        setPrediction({ prediction, yes, no });
         if (prediction == 1) {
           setOutputMessage(
             "You have a high chance of getting a diabetes. It is a better idea to consult a doctor"
@@ -123,182 +122,181 @@ function Diabetes() {
       });
   };
 
-  // await fetch(`${predictionUrl}/diabetes`, {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({
-  //     age: age,
-  //     pregnancies: pregnancies,
-  //     glucose: glucose,
-  //     blood_pressure: bloodPressure,
-  //     skin_thickness: skinThickness,
-  //     insulin: insulin,
-  //     bmi: bmi,
-  //     diabetes_pedigree_function: diabetesPedigree,
-  //   }),
-  // })
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     console.log(data);
-  //     const { prediction, yes, no } = data;
-  //     if (prediction == 1) {
-  //       setOutputMessage(
-  //         "You have a high chance of getting a diabetes. It is a better idea to consult a doctor"
-  //       );
-  //       // console.log("You have a high chance of getting a stroke");
-  //     } else if (prediction == 0) {
-  //       setOutputMessage("You have a low chance of getting a diabetes.");
-  //       // console.log("You have a low chance of getting a stroke");
-  //     }
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-  //   };
-
   return (
     <div className=''>
       <Navbar />
-      <p className='text-center mt-8 text-3xl font-semibold text-white'>Diabetes Prediction</p>
-      <form
-        onSubmit={(event) => {
-          checkDiabetes(event);
-        }}
-      >
-        <div className='flex justify-center'>
-          <div className='flex flex-col justify-center md:gap-x-28 md:flex-row mx-6 md:mx-10 md:my-6 mt-8'>
-            <div className=''>
-              <div className='my-4 flex justify-center'>
-                <div className=''>
-                  <label className='text-white text-lg' htmlFor='age'>
-                    Age
-                  </label>
-                  <input
-                    onChange={changeAge}
-                    type='text'
-                    id='age'
-                    className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
-                    placeholder='Enter your age'
-                  />
-                </div>
-              </div>
-              <div className='my-4 flex justify-center'>
-                <div className='w-full'>
-                  <label className='text-white text-lg' htmlFor='pregnancies'>
-                    Pregnancies
-                  </label>
-                  <input
-                    onChange={changePregnancies}
-                    type='text'
-                    id='pregnancies'
-                    className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
-                    placeholder='Enter no of pregnancies'
-                  />
-                </div>
-              </div>
-              <div className='my-4 flex justify-center'>
-                <div className='w-full'>
-                  <label className='text-white text-lg' htmlFor='glucose'>
-                    Glucose
-                  </label>
-                  <input
-                    onChange={changeGlucose}
-                    type='text'
-                    id='glucose'
-                    className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
-                    placeholder='Enter your glucose level'
-                  />
-                </div>
-              </div>
-              <div className='my-4 flex justify-center'>
-                <div className='w-full'>
-                  <label className='text-white text-lg' htmlFor='blood-pressure'>
-                    Blood Pressure
-                  </label>
-                  <input
-                    onChange={changeBloodPressure}
-                    type='text'
-                    id='blood-pressure'
-                    className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
-                    placeholder='Enter your blood pressure'
-                  />
-                </div>
-              </div>
-            </div>
-            <div className=''>
-              <div className='md:my-4 flex justify-center'>
-                <div className='w-full'>
-                  <label className='text-white text-lg' htmlFor='skin-thickness'>
-                    Skin Thickness
-                  </label>
-                  <input
-                    onChange={changeSkinThickness}
-                    type='text'
-                    id='skin-thickness'
-                    className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
-                    placeholder='Enter your skin thickness'
-                  />
-                </div>
-              </div>
-              <div className='my-4 flex justify-center'>
-                <div className='w-full'>
-                  <label className='text-white text-lg' htmlFor='insulin'>
-                    Insulin
-                  </label>
-                  <input
-                    onChange={changeInsulin}
-                    type='text'
-                    id='insulin'
-                    className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5'
-                    placeholder='Enter your insulin level'
-                  />
-                </div>
-              </div>
-              <div className='my-4 flex justify-center'>
-                <div className='w-full'>
-                  <label className='text-white text-lg' htmlFor='bmi'>
-                    BMI
-                  </label>
-                  <input
-                    onChange={changeBmi}
-                    type='text'
-                    id='bmi'
-                    className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
-                    placeholder='Enter your BMI value'
-                  />
-                </div>
-              </div>
-              <div className='my-4 flex justify-center'>
-                <div className='w-full'>
-                  <label className='text-white text-lg' htmlFor='pedigree-function'>
-                    Diabetes Pedigree Function
-                  </label>
-                  <input
-                    onChange={changeDiabetesPedigree}
-                    type='text'
-                    id='pedigree-function'
-                    className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
-                    placeholder='Enter your diabetes pedigree function'
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='flex justify-center my-8'>
-          <button
-            className='bg-white hover:bg-slate-200 text-black font-medium text-lg py-2 px-4 rounded-md'
-            type='submit'
+
+      {dataCardVisibile ? (
+        <DataCard
+          data={{
+            age: age,
+            pregnancies: pregnancies,
+            glucose: glucose,
+            blood_pressure: bloodPressure,
+            skin_thickness: skinThickness,
+            insulin: insulin,
+            bmi: bmi,
+            diabetes_pedigree_function: diabetesPedigree,
+          }}
+          prediction={prediction}
+          message={outputMessage}
+        />
+      ) : (
+        <>
+          <p className='text-center mt-8 text-3xl font-semibold text-white'>
+            Diabetes Prediction
+          </p>
+          <form
+            onSubmit={(event) => {
+              checkDiabetes(event);
+            }}
           >
-            Check
-          </button>
-        </div>
-      </form>
-      <div>
-        <p className='text-center text-2xl'>{outputMessage}</p>
-      </div>
+            <div className='flex justify-center'>
+              <div className='flex flex-col justify-center md:gap-x-28 md:flex-row mx-6 md:mx-10 md:my-6 mt-8'>
+                <div className=''>
+                  <div className='my-4 flex justify-center'>
+                    <div className=''>
+                      <label className='text-white text-lg' htmlFor='age'>
+                        Age
+                      </label>
+                      <input
+                        onChange={changeAge}
+                        type='text'
+                        id='age'
+                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
+                        placeholder='Enter your age'
+                      />
+                    </div>
+                  </div>
+                  <div className='my-4 flex justify-center'>
+                    <div className='w-full'>
+                      <label
+                        className='text-white text-lg'
+                        htmlFor='pregnancies'
+                      >
+                        Pregnancies
+                      </label>
+                      <input
+                        onChange={changePregnancies}
+                        type='text'
+                        id='pregnancies'
+                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
+                        placeholder='Enter no of pregnancies'
+                      />
+                    </div>
+                  </div>
+                  <div className='my-4 flex justify-center'>
+                    <div className='w-full'>
+                      <label className='text-white text-lg' htmlFor='glucose'>
+                        Glucose
+                      </label>
+                      <input
+                        onChange={changeGlucose}
+                        type='text'
+                        id='glucose'
+                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
+                        placeholder='Enter your glucose level'
+                      />
+                    </div>
+                  </div>
+                  <div className='my-4 flex justify-center'>
+                    <div className='w-full'>
+                      <label
+                        className='text-white text-lg'
+                        htmlFor='blood-pressure'
+                      >
+                        Blood Pressure
+                      </label>
+                      <input
+                        onChange={changeBloodPressure}
+                        type='text'
+                        id='blood-pressure'
+                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
+                        placeholder='Enter your blood pressure'
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className=''>
+                  <div className='md:my-4 flex justify-center'>
+                    <div className='w-full'>
+                      <label
+                        className='text-white text-lg'
+                        htmlFor='skin-thickness'
+                      >
+                        Skin Thickness
+                      </label>
+                      <input
+                        onChange={changeSkinThickness}
+                        type='text'
+                        id='skin-thickness'
+                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
+                        placeholder='Enter your skin thickness'
+                      />
+                    </div>
+                  </div>
+                  <div className='my-4 flex justify-center'>
+                    <div className='w-full'>
+                      <label className='text-white text-lg' htmlFor='insulin'>
+                        Insulin
+                      </label>
+                      <input
+                        onChange={changeInsulin}
+                        type='text'
+                        id='insulin'
+                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block mt-2 p-2.5'
+                        placeholder='Enter your insulin level'
+                      />
+                    </div>
+                  </div>
+                  <div className='my-4 flex justify-center'>
+                    <div className='w-full'>
+                      <label className='text-white text-lg' htmlFor='bmi'>
+                        BMI
+                      </label>
+                      <input
+                        onChange={changeBmi}
+                        type='text'
+                        id='bmi'
+                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
+                        placeholder='Enter your BMI value'
+                      />
+                    </div>
+                  </div>
+                  <div className='my-4 flex justify-center'>
+                    <div className='w-full'>
+                      <label
+                        className='text-white text-lg'
+                        htmlFor='pedigree-function'
+                      >
+                        Diabetes Pedigree Function
+                      </label>
+                      <input
+                        onChange={changeDiabetesPedigree}
+                        type='text'
+                        id='pedigree-function'
+                        className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 mt-2'
+                        placeholder='Enter your diabetes pedigree function'
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='flex justify-center my-8'>
+              <button
+                className='bg-white hover:bg-slate-200 text-black font-medium text-lg py-2 px-4 rounded-md'
+                type='submit'
+              >
+                Check
+              </button>
+            </div>
+          </form>
+          <div>
+            <p className='text-center text-2xl'>{outputMessage}</p>
+          </div>
+        </>
+      )}
     </div>
   );
 }
