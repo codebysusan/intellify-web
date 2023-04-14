@@ -20,7 +20,7 @@ export default function DataCard({
             <p className='text-xl mt-4'>Probablity: {prediction.yes * 100}%</p>
           </div>
         )}
-        <table className='table-auto'>
+        <table className='table-auto mb-10'>
           <thead>
             <tr>
               <th className='px-4 py-2'>Feature</th>
