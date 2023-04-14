@@ -2,13 +2,11 @@ import React from 'react'
 import Navbar from "./Navbar";
 import Hero from "../assets/medi.png"
 import { Link } from 'react-router-dom';
-import HeartattackImg from "../assets/heart_disease.png";
-import StrokeImg from "../assets/stroke.png";
-import BreastCancerImg from "../assets/breastcancer.png";
-import DiabetesImg from "../assets/diabetes.png"
+import FeatureSection from './FeatureSection';
 
 
 function NewLandingPage() {
+
   return (
     <div className='mb-24'>
       <Navbar />
@@ -37,23 +35,8 @@ function NewLandingPage() {
             </div>
           </div>
         </div>
-
       </div>
-      <div className='text-white flex justify-center border-t-4 mt-12'>
-        <div className='mt-12'>
-          <p className='text-5xl font-bold'>Features</p>
-        </div>
-      </div>
-      <div className='flex flex-row align-middle mx-24 mt-24'>
-        <div className='p-8 rounded-xl'>
-          <img className='bg-white p-2 rounded-xl' src={StrokeImg} width={"100rem"} alt="" />
-        </div>
-        <div>
-          <p className=''>Stroke</p>
-        </div>
-
-
-      </div>
+      <FeatureSection />
     </div>
   )
 }
