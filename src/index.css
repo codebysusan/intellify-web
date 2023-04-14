@@ -32,16 +32,16 @@ body {
   /* color: #73b9ee; */
 }
 
-#login-illustration{
+#login-illustration {
   background-image: url("./assets/illustration1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.height-90{
+.height-90 {
   height: 93vh;
 }
 
-.dark-blue{
-  background-color: #F6F1F1;
+.dark-blue {
+  background-color: #f6f1f1;
 }

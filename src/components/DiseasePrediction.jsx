@@ -2,10 +2,15 @@ import React from 'react'
 import Navbar from './Navbar'
 import { Link } from 'react-router-dom'
 import Doctor from '../assets/doctor.png'
+import HeartattackImg from "../assets/heart_disease.png";
+import StrokeImg from "../assets/stroke.png";
+import BreastCancerImg from "../assets/breastcancer.png";
+import DiabetesImg from "../assets/diabetes.png"
+
 
 function DiseasePrediction() {
-  return (
-    <div className='h-screen'>
+    return (
+        <div className='h-screen'>
             <div className='shadow-lg'>
                 <Navbar />
             </div>
@@ -17,7 +22,7 @@ function DiseasePrediction() {
                     >
                         <div>
                             <div className='flex justify-center'>
-                                <img src={Doctor} alt="" width={"100rem"} />
+                                <img src={StrokeImg} alt="" width={"100rem"} />
                             </div>
                             <div>
                                 <p className='text-center text-4xl font-semibold mt-6'>
@@ -25,7 +30,7 @@ function DiseasePrediction() {
                                 </p>
                             </div>
                             <div className='text-center mt-5 text-xl'>
-                                Get a quick prediction of possible diseases based on your symptoms. Click here to try our symptom prediction model!
+                                Stay proactive about your health. Predict your stroke risk with our state-of-the-art model. Click here to get a quick and accurate assessment!
                             </div>
                         </div>
                     </Link>
@@ -35,7 +40,7 @@ function DiseasePrediction() {
                     >
                         <div>
                             <div className='flex justify-center'>
-                                <img src={Doctor} alt="" width={"100rem"} />
+                                <img src={HeartattackImg} alt="" width={"100rem"} />
                             </div>
                             <div>
                                 <p className='text-center text-4xl font-semibold mt-6'>
@@ -43,17 +48,17 @@ function DiseasePrediction() {
                                 </p>
                             </div>
                             <div className='text-center mt-5 text-xl'>
-                                Symptom-Driven Suggestion is an AI-based system that provides tailored recommendations for symptoms.
+                                Don't wait for a heart attack to strike. Predict your risk with our advanced model and take control of your heart health. Click here for a personalized assessment!
                             </div>
                         </div>
                     </Link>
                     <Link
-                    to={"/diabetes"}
+                        to={"/diabetes"}
                         className='hover:cursor-pointer w-11/12 md:w-1/4 flex items-center bg-slate-100 p-8 backdrop-blur-md min-h-[450px] rounded-xl'
                     >
                         <div>
                             <div className='flex justify-center'>
-                                <img src={Doctor} alt="" width={"100rem"} />
+                                <img src={DiabetesImg} alt="" width={"100rem"} />
                             </div>
                             <div>
                                 <p className='text-center text-4xl font-semibold mt-6'>
@@ -61,18 +66,17 @@ function DiseasePrediction() {
                                 </p>
                             </div>
                             <div className='text-center mt-5 text-xl'>
-                                Finding the right doctor is important for good health. 
-                                Find your ideal doctor in seconds!
+                                Empower yourself with knowledge. Predict your risk of diabetes with our cutting-edge prediction model. Click here for a personalized assessment!
                             </div>
                         </div>
                     </Link>
                     <Link
-                    to={"/breast-cancer-prediction"}
+                        to={"/breast-cancer-prediction"}
                         className='hover:cursor-pointer w-11/12 md:w-1/4 flex items-center bg-slate-100 p-8 backdrop-blur-md min-h-[450px] rounded-xl'
                     >
                         <div>
                             <div className='flex justify-center'>
-                                <img src={Doctor} alt="" width={"100rem"} />
+                                <img src={BreastCancerImg} alt="" width={"100rem"} />
                             </div>
                             <div>
                                 <p className='text-center text-4xl font-semibold mt-6'>
@@ -80,8 +84,7 @@ function DiseasePrediction() {
                                 </p>
                             </div>
                             <div className='text-center mt-5 text-xl'>
-                                Finding the right doctor is important for good health. 
-                                Find your ideal doctor in seconds! 
+                                Early detection saves lives. Predict your risk of breast cancer with our advanced model and take control of your health. Click here for a personalized assessment!
                             </div>
                         </div>
                     </Link>
@@ -89,7 +92,7 @@ function DiseasePrediction() {
                 </div>
             </div>
         </div>
-  )
+    )
 }
 
 export default DiseasePrediction

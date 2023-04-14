@@ -22,11 +22,16 @@ import NewHome from './components/NewHome';
 import DiseasePrediction from './components/DiseasePrediction';
 import NewLogin from './components/NewLogin';
 import NewSignup from './components/NewSignup';
+import NewLandingPage from './components/NewLandingPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/main",
+    element: <NewLandingPage />,
   },
   {
     path: "/signup",
