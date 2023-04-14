@@ -81,7 +81,7 @@ function Signup() {
           const user = jwtDecode(token);
           const accountType = user.acc_type;
           if (accountType == "user") {
-            history("/home");
+            history("/new-home");
           } else if (accountType == "doctor") {
             history("/doctor-home");
           }
