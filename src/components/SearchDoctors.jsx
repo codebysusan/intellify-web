@@ -46,20 +46,27 @@ function SearchDoctors() {
                 <div className='w-1/2 md:w-1/2 dark-blue p-8 rounded-xl'>
                     <form className='w-full' onSubmit={(event) => { searchDoctor(event) }}>
                         <div className="flex justify-center">
-                            <input
-                                onChange={changeSpecialization}
-                                type="text"
-                                id="search-doctors"
-                                className="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block md:w-2/3 w-2/3 p-2.5"
-                                placeholder="Search Specialization"
-                            />
-                        </div>
-                        <div className="flex justify-center mt-4">
                             <select
                                 onChange={changeCity}
                                 defaultValue={"select-one"}
                                 name='gender'
                                 id='gender'
+                                className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 w-full focus:border-blue-500 block md:w-2/3 w-2/3 mt-2 py-2.5 px-2'
+                                required
+                            >
+                                <option value={"select-one"} disabled>
+                                    Select Specialization
+                                </option>
+                                <option value={"Ortho"}>Ortho</option>
+                                <option value={"Gyno"}>Gyno</option>
+                            </select>
+                        </div>
+                        <div className="flex justify-center mt-4">
+                            <select
+                                onChange={changeCity}
+                                defaultValue={"select-one"}
+                                name='city'
+                                id='city'
                                 className='border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 w-full focus:border-blue-500 block md:w-2/3 w-2/3 mt-2 py-2.5 px-2'
                                 required
                             >
