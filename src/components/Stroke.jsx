@@ -81,12 +81,10 @@ function Stroke() {
       ` Age: ${age} \n Hypertension: ${hypertension} \n Evermarried: ${evermarried} \n Bmi: ${bmi} \n Heart Disease: ${heartdisease} \n Avg Glucose Level: ${avgglucoselevel} \n Smoking Status: ${smokingstatus}`
     );
 
-
     await fetch(`${predictionUrl}/stroke`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         age: age,
@@ -122,7 +120,9 @@ function Stroke() {
   return (
     <div className=''>
       <Navbar />
-      <p className='text-center mt-8 text-3xl font-semibold text-white'>Stroke Prediction</p>
+      <p className='text-center mt-8 text-3xl font-semibold text-white'>
+        Stroke Prediction
+      </p>
       <form onSubmit={(event) => handleSubmit(event)}>
         <div className='flex justify-center'>
           <div className='flex flex-col justify-center md:gap-x-28 md:flex-row mx-6 md:mx-10 md:my-6 mt-8'>
@@ -224,7 +224,10 @@ function Stroke() {
               </div>
               <div className='my-4 flex justify-center'>
                 <div className='w-full'>
-                  <label className='text-white text-lg' htmlFor='avgglucoselevel'>
+                  <label
+                    className='text-white text-lg'
+                    htmlFor='avgglucoselevel'
+                  >
                     Average Glucose Level
                   </label>
                   <input
