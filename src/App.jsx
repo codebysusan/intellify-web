@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function App() {
   const heroSection = (
-    <div className='h-full light-color text-center' id='herosection'>
+    <div className='h-full text-center'>
       <div className='pt-28 '>
         <p className='md:text-5xl text-dark font-bold text-3xl px-10 md:px-96 md:mt-52 md:leading-normal'>
           Changing the way you receive health information through the use of AI
