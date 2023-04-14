@@ -120,7 +120,7 @@ function Signup() {
                     Full Name
                   </label>
                   <input
-                    // onChange={changeFullname}
+                    onChange={changeFullname}
                     type='text'
                     id='fullname'
                     className='border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
@@ -138,6 +138,7 @@ function Signup() {
                     Email address
                   </label>
                   <input
+                    onChange={changeEmail}
                     type='email'
                     id='email'
                     className='border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
@@ -155,6 +156,7 @@ function Signup() {
                     Password
                   </label>
                   <input
+                    onChange={changePassword}
                     type='password'
                     id='password'
                     className='border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
@@ -172,7 +174,7 @@ function Signup() {
                     Confirm Password
                   </label>
                   <input
-                    // onChange={changeConfirmPassword}
+                    onChange={changeConfirmPassword}
                     type='password'
                     id='confirmpassword'
                     className='border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
@@ -187,7 +189,7 @@ function Signup() {
                     Usertype
                   </label>
                   <select
-                    // onChange={changeUsertype}
+                    onChange={changeUsertype}
                     defaultValue={"select-one"}
                     name='usertype'
                     id='usertype'
