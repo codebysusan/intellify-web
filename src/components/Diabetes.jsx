@@ -4,6 +4,65 @@ import axios from "axios";
 import jwtDecode from "jwt-decode";
 import DataCard from "./DataCard";
 
+const comparisonData = [
+  {
+    feature_name: "pregnencies",
+    formal_name: "No Of Pregnencies",
+    min_value: 3.7,
+    max_value: 17,
+    standard_value: 3.31,
+  },
+  {
+    feature_name: "glucose",
+    formal_name: "Glucose",
+    min_value: 121.98,
+    max_value: 199,
+    standard_value: 30.53,
+  },
+  {
+    feature_name: "blood_pressure",
+    formal_name: "Blood Pressure",
+    min_value: 72.4,
+    max_value: 122,
+    standard_value: 11.95,
+  },
+  {
+    feature_name: "skin_thickness",
+    formal_name: "Skin Thickness",
+    min_value: 29.24,
+    max_value: 110,
+    standard_value: 9.12,
+  },
+  {
+    feature_name: "insulin",
+    formal_name: "Insulin",
+    min_value: 153.74,
+    max_value: 744,
+    standard_value: 80.38,
+  },
+  {
+    feature_name: "bmi",
+    formal_name: "BMI",
+    min_value: 32.65,
+    max_value: 80.6,
+    standard_value: 7.19,
+  },
+  {
+    feature_name: "diabetics_pedigree_function",
+    formal_name: "Diabetics Pedigree Function",
+    min_value: 0.47,
+    max_value: 2.42,
+    standard_value: 0.32,
+  },
+  // {
+  //   feature_name: "age",
+  //   formal_name: "Age",
+  //   min_value: 33.09,
+  //   max_value: 81,
+  //   standard_value: 11.79,
+  // },
+];
+
 function Diabetes() {
   useEffect(() => {
     document.title = "MindMed | Diabetes Prediction";
@@ -128,16 +187,41 @@ function Diabetes() {
 
       {dataCardVisibile ? (
         <DataCard
-          data={{
-            age: age,
-            pregnancies: pregnancies,
-            glucose: glucose,
-            blood_pressure: bloodPressure,
-            skin_thickness: skinThickness,
-            insulin: insulin,
-            bmi: bmi,
-            diabetes_pedigree_function: diabetesPedigree,
-          }}
+          data={[
+            {
+              feature_name: "age",
+              current_value: age,
+            },
+            {
+              feature_name: "pregnencies",
+              current_value: pregnancies,
+            },
+            {
+              feature_name: "glucose",
+              current_value: glucose,
+            },
+            {
+              feature_name: "blood_pressure",
+              current_value: bloodPressure,
+            },
+            {
+              feature_name: "skin_thickness",
+              current_value: skinThickness,
+            },
+            {
+              feature_name: "insulin",
+              current_value: insulin,
+            },
+            {
+              feature_name: "bmi",
+              current_value: bmi,
+            },
+            {
+              feature_name: "diabetics_pedigree_function",
+              current_value: diabetesPedigree,
+            },
+          ]}
+          comparisonData={comparisonData}
           prediction={prediction}
           message={outputMessage}
         />
