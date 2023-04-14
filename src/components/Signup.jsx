@@ -56,7 +56,9 @@ function Signup() {
 
   const handleSignup = async (event) => {
     event.preventDefault();
-    // console.log(`Fullname: ${fullname} \nEmail: ${email} \nPassword: ${password} \nConfirm Password: ${confirmpassword} \nUsertype: ${usertype}`);
+    console.log(
+      `Fullname: ${fullname} \nEmail: ${email} \nPassword: ${password} \nConfirm Password: ${confirmpassword} \nUsertype: ${usertype}`
+    );
     console.log(import.meta.env.VITE_BASE_URL);
 
     await fetch(`${baseUrl}/user`, {
@@ -105,12 +107,18 @@ function Signup() {
       <Navbar />
       <div className='flex flex-grow'>
         <div className='w-1/2'>
-          <img className='object-cover w-full height-90' src={Illustration} alt="" />
+          <img
+            className='object-cover w-full height-90'
+            src={Illustration}
+            alt=''
+          />
         </div>
         <div className='w-1/2'>
           <div className='flex flex-col justify-center items-center h-full'>
-            <form className='w-full' >
-              <p className='text-4xl font-semibold text-center text-white'>Sign Up</p>
+            <form className='w-full'>
+              <p className='text-4xl font-semibold text-center text-white'>
+                Sign Up
+              </p>
               <div className='flex justify-center flex-row w-full mt-8'>
                 <div className='w-1/2 mb-6'>
                   <label
@@ -120,7 +128,8 @@ function Signup() {
                     Full Name
                   </label>
                   <input
-                    // onChange={changeFullname}
+                    value={fullname}
+                    onChange={changeFullname}
                     type='text'
                     id='fullname'
                     className='border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
@@ -138,6 +147,8 @@ function Signup() {
                     Email address
                   </label>
                   <input
+                    value={email}
+                    onChange={changeEmail}
                     type='email'
                     id='email'
                     className='border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
@@ -155,6 +166,8 @@ function Signup() {
                     Password
                   </label>
                   <input
+                    value={password}
+                    onChange={changePassword}
                     type='password'
                     id='password'
                     className='border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
@@ -172,7 +185,8 @@ function Signup() {
                     Confirm Password
                   </label>
                   <input
-                    // onChange={changeConfirmPassword}
+                    onChange={changeConfirmPassword}
+                    value={confirmpassword}
                     type='password'
                     id='confirmpassword'
                     className='border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
@@ -183,11 +197,14 @@ function Signup() {
               </div>
               <div className='flex justify-center flex-row w-full'>
                 <div className='w-1/2 mb-6'>
-                  <label className='block mb-2 text-lg font-medium text-white' htmlFor='usertype'>
+                  <label
+                    className='block mb-2 text-lg font-medium text-white'
+                    htmlFor='usertype'
+                  >
                     Usertype
                   </label>
                   <select
-                    // onChange={changeUsertype}
+                    onChange={changeUsertype}
                     defaultValue={"select-one"}
                     name='usertype'
                     id='usertype'
@@ -206,7 +223,7 @@ function Signup() {
                   <button
                     type='submit'
                     className='bg-white hover:bg-slate-100 text-black px-4 py-2 rounded-md'
-                    value='submit'
+                    onClick={handleSignup}
                   >
                     Sign Up
                   </button>
@@ -220,7 +237,6 @@ function Signup() {
               </Link>
             </p>
           </div>
-
         </div>
       </div>
     </div>
