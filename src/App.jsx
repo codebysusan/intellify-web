@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from "./assets/medi.png"
 import { Link } from 'react-router-dom';
 import FeatureSection from './components/FeatureSection';
+import OurModels from './components/OurModels';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         </div>
       </div>
       <FeatureSection />
+      <OurModels />
     </div>
   )
 }

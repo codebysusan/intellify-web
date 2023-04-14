@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Hero from "../assets/medi.png"
 import { Link } from 'react-router-dom';
 import FeatureSection from './FeatureSection';
+import OurModels from './OurModels';
 
 
 function NewLandingPage() {
@@ -37,6 +38,7 @@ function NewLandingPage() {
         </div>
       </div>
       <FeatureSection />
+      <OurModels />
     </div>
   )
 }

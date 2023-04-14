@@ -15,7 +15,7 @@ function FeatureSection() {
                     <img className='bg-white p-2 rounded-xl' src={StrokeImg} width={"60rem"} alt="" />
                 </div>
                 <div>
-                    <p className='text-3xl font-bold text-white'>Stroke</p>
+                    <p className='text-3xl font-bold text-white'>Stroke Prediction</p>
                 </div>
             </div>
             <div className='px-20 pt-2 text-white '>
@@ -43,7 +43,7 @@ function FeatureSection() {
                     <img className='bg-white p-2 rounded-xl' src={DiabetesImg} width={"60rem"} alt="" />
                 </div>
                 <div>
-                    <p className='text-3xl font-bold text-white'>Diabetes</p>
+                    <p className='text-3xl font-bold text-white'>Diabetes Prediction</p>
                 </div>
             </div>
             <div className='px-20 pt-2 text-white'>
@@ -76,7 +76,7 @@ function FeatureSection() {
                     <img className='bg-white p-2 rounded-xl' src={HeartattackImg} width={"60rem"} alt="" />
                 </div>
                 <div>
-                    <p className='text-3xl font-bold text-white'>Heart Attack</p>
+                    <p className='text-3xl font-bold text-white'>Heart Attack Prediction</p>
                 </div>
             </div>
             <div className='px-20 pt-2 text-white'>
@@ -104,7 +104,7 @@ function FeatureSection() {
                     <img className='bg-white p-2 rounded-xl' src={BreastCancerImg} width={"60rem"} alt="" />
                 </div>
                 <div>
-                    <p className='text-3xl font-bold text-white'>Breast Cancer</p>
+                    <p className='text-3xl font-bold text-white'>Breast Cancer Prediction</p>
                 </div>
             </div>
             <div className='px-20 pt-2 text-white '>
