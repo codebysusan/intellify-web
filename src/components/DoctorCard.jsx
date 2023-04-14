@@ -5,58 +5,45 @@ import Hospital from "../assets/hospital.png";
 function DoctorCard(props) {
 
     const doctorName = props.name;
-    const doctorHospital = props.hospital;
-
-    const userName = doctorName.length < 18 ? (
-        <p>
-            {doctorName}
-        </p>
-    ) : (
-        <p>
-            {
-                doctorName
-                // doctorName.substring(0, 18).concat("...")
-            }
-        </p>
-    );
-
-
-    const hospitalName = props.hospital;
-
-    const hospital = hospitalName.length < 18 ? (
-        <p className='ml-3 self-end'>
-            {hospitalName}
-        </p>
-    ) : (
-        <p className='ml-3 self-end'>
-            {
-                hospitalName
-                // hospitalName.substring(0, 18).concat("...")
-            }
-        </p>
+    const specialization = (
+        <div>
+            Orthopedic
+        </div>
     );
 
     return (
-        <div className='flex justify-center w-full my-3'>
-            <div className='flex items-center gap-x-6 bg-slate-100 p-4 rounded-lg md:w-1/3 w-full mx-6'>
-                <div className=''>
-                    <img className='' src={Doctor} alt="" width={"60 rem"} />
-                </div>
-                <div className='text-lg'>
-                    {
-                        userName
-                    }
-                    <div className='mt-2 flex items-stretch'>
-                        <div>
-                            <img src={Hospital} alt="" width={"25rem"} />
-                        </div>
-                        <div>
-                            {
-                                hospital
-                            }
-                        </div>
+        <div className='w-full'>
+            <div className='flex justify-center w-full my-3'>
+                <div className='flex items-center gap-x-8 bg-slate-100 p-4 rounded-lg md:w-1/2 w-1/2 mx-6'>
+                    <div className=''>
+                        <img className='' src={Doctor} alt="" width={"90 rem"} />
                     </div>
+                    <div className='text-lg '>
+                        <div >
+                            <div className='font-semibold'>
+                                {
+                                    doctorName
+                                }
+                            </div>
 
+                            <div className='font-normal'>
+                                {
+                                    specialization
+                                }
+                            </div>
+                        </div>
+                        <div className='mt-1 '>
+                            <div>
+                                Rajkot, Gujarat
+                            </div>
+                        </div>
+                        <div className='mt-1 flex items-stretch'>
+                            <div>
+                                +91 7609876453
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>

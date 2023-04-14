@@ -9,7 +9,7 @@ function Login() {
     document.title = "MindMed | Login";
     const token = localStorage.getItem("token");
     if (token != null) {
-      history("/home");
+      history("/new-home");
     }
   }, []);
 
@@ -61,9 +61,9 @@ function Login() {
           const user = jwtDecode(token);
           const accountType = user.acc_type;
           if (accountType == "doctor") {
-            history("/doctor-home");
+            history("/disease-prediction");
           } else if (accountType == "user") {
-            history("/home");
+            history("/new-home");
           }
         } else {
           console.log("Login failed");
